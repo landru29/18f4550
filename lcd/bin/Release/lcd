@@ -1,0 +1,2 @@
+#!/bin/sh
+pk2cmd -P -M -F$0.hex

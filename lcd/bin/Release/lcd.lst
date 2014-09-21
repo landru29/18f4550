@@ -1,0 +1,1504 @@
+gplink-1.3.0 #1017 (Sep 21 2014)
+Copyright (c) 1998-2014 gputils project
+Listing File Generated: 9-21-2014  19:43:34
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 3.4.1 #9075 (Sep 21 2014) (Linux)
+                                           ; This file was generated Sun Sep 21 19:43:33 2014
+                                           ;--------------------------------------------------------
+                                           ; PIC16 port for the Microchip 16-bit core micros
+                                           ;--------------------------------------------------------
+                                           	list	p=18f4550
+                                           	radix	dec
+                                           
+                                           
+                                           ;--------------------------------------------------------
+                                           ; public variables in this module
+                                           ;--------------------------------------------------------
+                                           	global	_lcd_init
+                                           	global	_lcd_print
+                                           	global	_putchar
+                                           	global	_lcd_pushLetter
+                                           	global	_lcd_setLine
+                                           	global	_lcd_clear
+                                           	global	_lcd_home
+                                           	global	_lcd_ddram
+                                           	global	_lcd_emode
+                                           	global	_lcd_dmode
+                                           	global	_lcd_cmode
+                                           	global	_lcd_fmode
+                                           	global	_lcd_send_cmd
+                                           	global	_lcd_send_data
+                                           	global	_lcd_busy
+                                           	global	__cristalMhz
+                                           	global	__autoRedirect
+                                           
+                                           ;--------------------------------------------------------
+                                           ; extern variables in this module
+                                           ;--------------------------------------------------------
+                                           	extern	__gptrget1
+                                           	extern	_SPPCFGbits
+                                           	extern	_SPPEPSbits
+                                           	extern	_SPPCONbits
+                                           	extern	_UFRMLbits
+                                           	extern	_UFRMHbits
+                                           	extern	_UIRbits
+                                           	extern	_UIEbits
+                                           	extern	_UEIRbits
+                                           	extern	_UEIEbits
+                                           	extern	_USTATbits
+                                           	extern	_UCONbits
+                                           	extern	_UADDRbits
+                                           	extern	_UCFGbits
+                                           	extern	_UEP0bits
+                                           	extern	_UEP1bits
+                                           	extern	_UEP2bits
+                                           	extern	_UEP3bits
+                                           	extern	_UEP4bits
+                                           	extern	_UEP5bits
+                                           	extern	_UEP6bits
+                                           	extern	_UEP7bits
+                                           	extern	_UEP8bits
+                                           	extern	_UEP9bits
+                                           	extern	_UEP10bits
+                                           	extern	_UEP11bits
+                                           	extern	_UEP12bits
+                                           	extern	_UEP13bits
+                                           	extern	_UEP14bits
+                                           	extern	_UEP15bits
+                                           	extern	_PORTAbits
+                                           	extern	_PORTBbits
+                                           	extern	_PORTCbits
+                                           	extern	_PORTDbits
+                                           	extern	_PORTEbits
+                                           	extern	_LATAbits
+                                           	extern	_LATBbits
+                                           	extern	_LATCbits
+                                           	extern	_LATDbits
+                                           	extern	_LATEbits
+                                           	extern	_DDRAbits
+                                           	extern	_TRISAbits
+                                           	extern	_DDRBbits
+                                           	extern	_TRISBbits
+                                           	extern	_DDRCbits
+                                           	extern	_TRISCbits
+                                           	extern	_DDRDbits
+                                           	extern	_TRISDbits
+                                           	extern	_DDREbits
+                                           	extern	_TRISEbits
+                                           	extern	_OSCTUNEbits
+                                           	extern	_PIE1bits
+                                           	extern	_PIR1bits
+                                           	extern	_IPR1bits
+                                           	extern	_PIE2bits
+                                           	extern	_PIR2bits
+                                           	extern	_IPR2bits
+                                           	extern	_EECON1bits
+                                           	extern	_RCSTAbits
+                                           	extern	_TXSTAbits
+                                           	extern	_T3CONbits
+                                           	extern	_CMCONbits
+                                           	extern	_CVRCONbits
+                                           	extern	_CCP1ASbits
+                                           	extern	_ECCP1ASbits
+                                           	extern	_CCP1DELbits
+                                           	extern	_ECCP1DELbits
+                                           	extern	_BAUDCONbits
+                                           	extern	_BAUDCTLbits
+                                           	extern	_CCP2CONbits
+                                           	extern	_CCP1CONbits
+                                           	extern	_ECCP1CONbits
+                                           	extern	_ADCON2bits
+                                           	extern	_ADCON1bits
+                                           	extern	_ADCON0bits
+                                           	extern	_SSPCON2bits
+                                           	extern	_SSPCON1bits
+                                           	extern	_SSPSTATbits
+                                           	extern	_T2CONbits
+                                           	extern	_T1CONbits
+                                           	extern	_RCONbits
+                                           	extern	_WDTCONbits
+                                           	extern	_HLVDCONbits
+                                           	extern	_LVDCONbits
+                                           	extern	_OSCCONbits
+                                           	extern	_T0CONbits
+                                           	extern	_STATUSbits
+                                           	extern	_INTCON3bits
+                                           	extern	_INTCON2bits
+                                           	extern	_INTCONbits
+                                           	extern	_STKPTRbits
+                                           	extern	_stdin
+                                           	extern	_stdout
+                                           	extern	_SPPDATA
+                                           	extern	_SPPCFG
+                                           	extern	_SPPEPS
+                                           	extern	_SPPCON
+                                           	extern	_UFRM
+                                           	extern	_UFRML
+                                           	extern	_UFRMH
+                                           	extern	_UIR
+                                           	extern	_UIE
+                                           	extern	_UEIR
+                                           	extern	_UEIE
+                                           	extern	_USTAT
+                                           	extern	_UCON
+                                           	extern	_UADDR
+                                           	extern	_UCFG
+                                           	extern	_UEP0
+                                           	extern	_UEP1
+                                           	extern	_UEP2
+                                           	extern	_UEP3
+                                           	extern	_UEP4
+                                           	extern	_UEP5
+                                           	extern	_UEP6
+                                           	extern	_UEP7
+                                           	extern	_UEP8
+                                           	extern	_UEP9
+                                           	extern	_UEP10
+                                           	extern	_UEP11
+                                           	extern	_UEP12
+                                           	extern	_UEP13
+                                           	extern	_UEP14
+                                           	extern	_UEP15
+                                           	extern	_PORTA
+                                           	extern	_PORTB
+                                           	extern	_PORTC
+                                           	extern	_PORTD
+                                           	extern	_PORTE
+                                           	extern	_LATA
+                                           	extern	_LATB
+                                           	extern	_LATC
+                                           	extern	_LATD
+                                           	extern	_LATE
+                                           	extern	_DDRA
+                                           	extern	_TRISA
+                                           	extern	_DDRB
+                                           	extern	_TRISB
+                                           	extern	_DDRC
+                                           	extern	_TRISC
+                                           	extern	_DDRD
+                                           	extern	_TRISD
+                                           	extern	_DDRE
+                                           	extern	_TRISE
+                                           	extern	_OSCTUNE
+                                           	extern	_PIE1
+                                           	extern	_PIR1
+                                           	extern	_IPR1
+                                           	extern	_PIE2
+                                           	extern	_PIR2
+                                           	extern	_IPR2
+                                           	extern	_EECON1
+                                           	extern	_EECON2
+                                           	extern	_EEDATA
+                                           	extern	_EEADR
+                                           	extern	_RCSTA
+                                           	extern	_TXSTA
+                                           	extern	_TXREG
+                                           	extern	_RCREG
+                                           	extern	_SPBRG
+                                           	extern	_SPBRGH
+                                           	extern	_T3CON
+                                           	extern	_TMR3
+                                           	extern	_TMR3L
+                                           	extern	_TMR3H
+                                           	extern	_CMCON
+                                           	extern	_CVRCON
+                                           	extern	_CCP1AS
+                                           	extern	_ECCP1AS
+                                           	extern	_CCP1DEL
+                                           	extern	_ECCP1DEL
+                                           	extern	_BAUDCON
+                                           	extern	_BAUDCTL
+                                           	extern	_CCP2CON
+                                           	extern	_CCPR2
+                                           	extern	_CCPR2L
+                                           	extern	_CCPR2H
+                                           	extern	_CCP1CON
+                                           	extern	_ECCP1CON
+                                           	extern	_CCPR1
+                                           	extern	_CCPR1L
+                                           	extern	_CCPR1H
+                                           	extern	_ADCON2
+                                           	extern	_ADCON1
+                                           	extern	_ADCON0
+                                           	extern	_ADRES
+                                           	extern	_ADRESL
+                                           	extern	_ADRESH
+                                           	extern	_SSPCON2
+                                           	extern	_SSPCON1
+                                           	extern	_SSPSTAT
+                                           	extern	_SSPADD
+                                           	extern	_SSPBUF
+                                           	extern	_T2CON
+                                           	extern	_PR2
+                                           	extern	_TMR2
+                                           	extern	_T1CON
+                                           	extern	_TMR1
+                                           	extern	_TMR1L
+                                           	extern	_TMR1H
+                                           	extern	_RCON
+                                           	extern	_WDTCON
+                                           	extern	_HLVDCON
+                                           	extern	_LVDCON
+                                           	extern	_OSCCON
+                                           	extern	_T0CON
+                                           	extern	_TMR0
+                                           	extern	_TMR0L
+                                           	extern	_TMR0H
+                                           	extern	_STATUS
+                                           	extern	_FSR2L
+                                           	extern	_FSR2H
+                                           	extern	_PLUSW2
+                                           	extern	_PREINC2
+                                           	extern	_POSTDEC2
+                                           	extern	_POSTINC2
+                                           	extern	_INDF2
+                                           	extern	_BSR
+                                           	extern	_FSR1L
+                                           	extern	_FSR1H
+                                           	extern	_PLUSW1
+                                           	extern	_PREINC1
+                                           	extern	_POSTDEC1
+                                           	extern	_POSTINC1
+                                           	extern	_INDF1
+                                           	extern	_WREG
+                                           	extern	_FSR0L
+                                           	extern	_FSR0H
+                                           	extern	_PLUSW0
+                                           	extern	_PREINC0
+                                           	extern	_POSTDEC0
+                                           	extern	_POSTINC0
+                                           	extern	_INDF0
+                                           	extern	_INTCON3
+                                           	extern	_INTCON2
+                                           	extern	_INTCON
+                                           	extern	_PROD
+                                           	extern	_PRODL
+                                           	extern	_PRODH
+                                           	extern	_TABLAT
+                                           	extern	_TBLPTR
+                                           	extern	_TBLPTRL
+                                           	extern	_TBLPTRH
+                                           	extern	_TBLPTRU
+                                           	extern	_PC
+                                           	extern	_PCL
+                                           	extern	_PCLATH
+                                           	extern	_PCLATU
+                                           	extern	_STKPTR
+                                           	extern	_TOS
+                                           	extern	_TOSL
+                                           	extern	_TOSH
+                                           	extern	_TOSU
+                                           	extern	_delay10tcy
+                                           	extern	_delay100tcy
+                                           	extern	_delay1ktcy
+                                           
+                                           ;--------------------------------------------------------
+                                           ;	Equates to used internal registers
+                                           ;--------------------------------------------------------
+                                           STATUS	equ	0xfd8
+                                           WREG	equ	0xfe8
+                                           FSR0L	equ	0xfe9
+                                           FSR1L	equ	0xfe1
+                                           FSR2L	equ	0xfd9
+                                           POSTINC1	equ	0xfe6
+                                           POSTDEC1	equ	0xfe5
+                                           PREINC1	equ	0xfe4
+                                           PLUSW2	equ	0xfdb
+                                           PRODL	equ	0xff3
+                                           
+                                           
+                                           	idata
+                                           __autoRedirect	db	0x00
+                                           
+                                           
+                                           ; Internal registers
+                                           .registers	udata_ovr	0x0000
+                                           r0x00	res	1
+                                           r0x01	res	1
+                                           r0x02	res	1
+                                           r0x03	res	1
+                                           r0x04	res	1
+                                           r0x05	res	1
+                                           r0x06	res	1
+                                           
+                                           udata_lcd_0	udata
+                                           __cristalMhz	res	2
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global & static initialisations
+                                           ;--------------------------------------------------------
+                                           ; I code from now on!
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_busy	code
+                                           _lcd_busy:
+                                           ;	.line	252; lcd.c	unsigned char lcd_busy()
+0011f4   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+0011f6   ffe5
+0011f8   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+0011fa   ffd9
+0011fc   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+0011fe   ffe5
+                                           ;	.line	257; lcd.c	LCD_DATA_CNF = 0xFF;
+001200   0eff     movlw   0xff             	MOVLW	0xff
+001202   6e95     movwf   0x95, 0          	MOVWF	_TRISD
+                                           ;	.line	258; lcd.c	LCD_RW = 1;
+001204   828b     bsf     0x8b, 0x1, 0     	BSF	_LATCbits, 1
+                                           ;	.line	259; lcd.c	LCD_RS = 0;
+001206   948b     bcf     0x8b, 0x2, 0     	BCF	_LATCbits, 2
+                                           ;	.line	260; lcd.c	LCD_E = 1;
+001208   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+00120a   0100     movlb   0                	BANKSEL	__cristalMhz
+                                           ;	.line	262; lcd.c	delay100tcy(_cristalMhz*8);
+00120c   5198     movf    0x98, 0, 0x1     	MOVF	__cristalMhz, W, B
+00120e   6e00     movwf   0, 0             	MOVWF	r0x00
+                                           ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+001210   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001212   0d08     mullw   0x8              	MULLW	0x08
+001214   cff3     movff   0xff3, 0         	MOVFF	PRODL, r0x00
+001216   f000
+001218   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00121a   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+00121c   f008
+                                           ;	.line	264; lcd.c	dataval = LCD_DATA;
+00121e   cf8c     movff   0xf8c, 0         	MOVFF	_LATD, r0x00
+001220   f000
+                                           ;	.line	265; lcd.c	LCD_E = 0;
+001222   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ;	.line	267; lcd.c	LCD_DATA_CNF = 0x00;
+001224   6a95     clrf    0x95, 0          	CLRF	_TRISD
+                                           ;	.line	269; lcd.c	if (dataval & 0x80)	return 1;
+001226   ae00     btfss   0, 0x7, 0        	BTFSS	r0x00, 7
+001228   d002     bra     0x122e           	BRA	_00217_DS_
+00122a   0e01     movlw   0x1              	MOVLW	0x01
+00122c   d001     bra     0x1230           	BRA	_00218_DS_
+                                           _00217_DS_:
+                                           ;	.line	270; lcd.c	return 0;
+00122e   6ae8     clrf    0xe8, 0          	CLRF	WREG
+                                           _00218_DS_:
+001230   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+001232   f000
+001234   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+001236   ffd9
+001238   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_send_data	code
+                                           _lcd_send_data:
+                                           ;	.line	233; lcd.c	void lcd_send_data(unsigned char dataval)
+0011a4   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+0011a6   ffe5
+0011a8   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+0011aa   ffd9
+0011ac   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+0011ae   ffe5
+0011b0   c001     movff   0x1, 0xfe5       	MOVFF	r0x01, POSTDEC1
+0011b2   ffe5
+0011b4   0e02     movlw   0x2              	MOVLW	0x02
+0011b6   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+0011b8   f000
+                                           _00208_DS_:
+                                           ;	.line	236; lcd.c	while (lcd_busy());
+0011ba   ecfa     call    0x11f4, 0        	CALL	_lcd_busy
+0011bc   f008
+0011be   6e01     movwf   0x1, 0           	MOVWF	r0x01
+0011c0   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+0011c2   e1fb     bnz     0x11ba           	BNZ	_00208_DS_
+                                           ;	.line	238; lcd.c	LCD_RW = 0;
+0011c4   928b     bcf     0x8b, 0x1, 0     	BCF	_LATCbits, 1
+                                           ;	.line	239; lcd.c	LCD_RS = 1;
+0011c6   848b     bsf     0x8b, 0x2, 0     	BSF	_LATCbits, 2
+                                           ;	.line	240; lcd.c	LCD_DATA = dataval;
+0011c8   c000     movff   0, 0xf8c         	MOVFF	r0x00, _LATD
+0011ca   ff8c
+                                           ;	.line	241; lcd.c	LCD_E = 1;
+0011cc   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+0011ce   0100     movlb   0                	BANKSEL	__cristalMhz
+                                           ;	.line	242; lcd.c	delay100tcy(_cristalMhz*8);
+0011d0   5198     movf    0x98, 0, 0x1     	MOVF	__cristalMhz, W, B
+0011d2   6e00     movwf   0, 0             	MOVWF	r0x00
+                                           ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+0011d4   5000     movf    0, 0, 0          	MOVF	r0x00, W
+0011d6   0d08     mullw   0x8              	MULLW	0x08
+0011d8   cff3     movff   0xff3, 0         	MOVFF	PRODL, r0x00
+0011da   f000
+0011dc   5000     movf    0, 0, 0          	MOVF	r0x00, W
+0011de   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+0011e0   f008
+                                           ;	.line	243; lcd.c	LCD_E = 0;
+0011e2   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ;	.line	244; lcd.c	LCD_DATA=0;
+0011e4   6a8c     clrf    0x8c, 0          	CLRF	_LATD
+0011e6   cfe4     movff   0xfe4, 0x1       	MOVFF	PREINC1, r0x01
+0011e8   f001
+0011ea   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0011ec   f000
+0011ee   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0011f0   ffd9
+0011f2   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_send_cmd	code
+                                           _lcd_send_cmd:
+                                           ;	.line	212; lcd.c	void lcd_send_cmd(unsigned char cmd)
+001152   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001154   ffe5
+001156   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001158   ffd9
+00115a   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+00115c   ffe5
+00115e   c001     movff   0x1, 0xfe5       	MOVFF	r0x01, POSTDEC1
+001160   ffe5
+001162   0e02     movlw   0x2              	MOVLW	0x02
+001164   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+001166   f000
+                                           _00200_DS_:
+                                           ;	.line	214; lcd.c	while (lcd_busy());
+001168   ecfa     call    0x11f4, 0        	CALL	_lcd_busy
+00116a   f008
+00116c   6e01     movwf   0x1, 0           	MOVWF	r0x01
+00116e   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+001170   e1fb     bnz     0x1168           	BNZ	_00200_DS_
+                                           ;	.line	216; lcd.c	LCD_RS = 0;
+001172   948b     bcf     0x8b, 0x2, 0     	BCF	_LATCbits, 2
+                                           ;	.line	217; lcd.c	LCD_RW = 0;
+001174   928b     bcf     0x8b, 0x1, 0     	BCF	_LATCbits, 1
+                                           ;	.line	218; lcd.c	LCD_DATA_CNF = 0;
+001176   6a95     clrf    0x95, 0          	CLRF	_TRISD
+                                           ;	.line	220; lcd.c	LCD_DATA=cmd;
+001178   c000     movff   0, 0xf8c         	MOVFF	r0x00, _LATD
+00117a   ff8c
+                                           ;	.line	222; lcd.c	LCD_E=1;
+00117c   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+00117e   0100     movlb   0                	BANKSEL	__cristalMhz
+                                           ;	.line	223; lcd.c	delay100tcy(_cristalMhz*8);
+001180   5198     movf    0x98, 0, 0x1     	MOVF	__cristalMhz, W, B
+001182   6e00     movwf   0, 0             	MOVWF	r0x00
+                                           ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+001184   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001186   0d08     mullw   0x8              	MULLW	0x08
+001188   cff3     movff   0xff3, 0         	MOVFF	PRODL, r0x00
+00118a   f000
+00118c   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00118e   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+001190   f008
+                                           ;	.line	224; lcd.c	LCD_E=0;
+001192   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ;	.line	225; lcd.c	LCD_DATA=0;
+001194   6a8c     clrf    0x8c, 0          	CLRF	_LATD
+001196   cfe4     movff   0xfe4, 0x1       	MOVFF	PREINC1, r0x01
+001198   f001
+00119a   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+00119c   f000
+00119e   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0011a0   ffd9
+0011a2   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_fmode	code
+                                           _lcd_fmode:
+                                           ;	.line	202; lcd.c	void lcd_fmode(unsigned char options)
+00137e   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001380   ffe5
+001382   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001384   ffd9
+001386   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+001388   ffe5
+00138a   0e02     movlw   0x2              	MOVLW	0x02
+00138c   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+00138e   f000
+                                           ;	.line	204; lcd.c	lcd_send_cmd((options & 0x1F) | 0x20);
+001390   0e1f     movlw   0x1f             	MOVLW	0x1f
+001392   1600     andwf   0, 0x1, 0        	ANDWF	r0x00, F
+001394   8a00     bsf     0, 0x5, 0        	BSF	r0x00, 5
+001396   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001398   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00139a   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+00139c   f008
+00139e   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+0013a0   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0013a2   f000
+0013a4   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0013a6   ffd9
+0013a8   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_cmode	code
+                                           _lcd_cmode:
+                                           ;	.line	186; lcd.c	void lcd_cmode(unsigned char options)
+0013aa   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+0013ac   ffe5
+0013ae   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+0013b0   ffd9
+0013b2   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+0013b4   ffe5
+0013b6   0e02     movlw   0x2              	MOVLW	0x02
+0013b8   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+0013ba   f000
+                                           ;	.line	188; lcd.c	lcd_send_cmd((options & 0x03) | 0x04);
+0013bc   0e03     movlw   0x3              	MOVLW	0x03
+0013be   1600     andwf   0, 0x1, 0        	ANDWF	r0x00, F
+0013c0   8400     bsf     0, 0x2, 0        	BSF	r0x00, 2
+0013c2   5000     movf    0, 0, 0          	MOVF	r0x00, W
+0013c4   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+0013c6   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+0013c8   f008
+0013ca   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+0013cc   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0013ce   f000
+0013d0   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0013d2   ffd9
+0013d4   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_dmode	code
+                                           _lcd_dmode:
+                                           ;	.line	172; lcd.c	void lcd_dmode(unsigned char options)
+0013d6   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+0013d8   ffe5
+0013da   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+0013dc   ffd9
+0013de   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+0013e0   ffe5
+0013e2   0e02     movlw   0x2              	MOVLW	0x02
+0013e4   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+0013e6   f000
+                                           ;	.line	174; lcd.c	lcd_send_cmd((options & 0x07) | 0x08);
+0013e8   0e07     movlw   0x7              	MOVLW	0x07
+0013ea   1600     andwf   0, 0x1, 0        	ANDWF	r0x00, F
+0013ec   8600     bsf     0, 0x3, 0        	BSF	r0x00, 3
+0013ee   5000     movf    0, 0, 0          	MOVF	r0x00, W
+0013f0   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+0013f2   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+0013f4   f008
+0013f6   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+0013f8   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0013fa   f000
+0013fc   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0013fe   ffd9
+001400   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_emode	code
+                                           _lcd_emode:
+                                           ;	.line	157; lcd.c	void lcd_emode(unsigned char options)
+001402   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001404   ffe5
+001406   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001408   ffd9
+00140a   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+00140c   ffe5
+00140e   0e02     movlw   0x2              	MOVLW	0x02
+001410   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+001412   f000
+                                           ;	.line	159; lcd.c	lcd_send_cmd((options & 0x03) | 0x04);
+001414   0e03     movlw   0x3              	MOVLW	0x03
+001416   1600     andwf   0, 0x1, 0        	ANDWF	r0x00, F
+001418   8400     bsf     0, 0x2, 0        	BSF	r0x00, 2
+00141a   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00141c   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00141e   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+001420   f008
+001422   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+001424   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+001426   f000
+001428   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+00142a   ffd9
+00142c   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_ddram	code
+                                           _lcd_ddram:
+                                           ;	.line	143; lcd.c	void lcd_ddram(unsigned char address)
+00145a   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+00145c   ffe5
+00145e   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001460   ffd9
+001462   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+001464   ffe5
+001466   0e02     movlw   0x2              	MOVLW	0x02
+001468   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+00146a   f000
+                                           ;	.line	145; lcd.c	lcd_send_cmd((address & 0x7F) | 0x80);
+00146c   9e00     bcf     0, 0x7, 0        	BCF	r0x00, 7
+00146e   8e00     bsf     0, 0x7, 0        	BSF	r0x00, 7
+001470   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001472   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001474   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+001476   f008
+001478   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+00147a   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+00147c   f000
+00147e   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+001480   ffd9
+001482   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_home	code
+                                           _lcd_home:
+                                           ;	.line	133; lcd.c	void lcd_home()
+00157a   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+00157c   ffe5
+00157e   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001580   ffd9
+                                           ;	.line	135; lcd.c	lcd_send_cmd(0x02);
+001582   0e02     movlw   0x2              	MOVLW	0x02
+001584   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001586   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+001588   f008
+00158a   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+00158c   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+00158e   ffd9
+001590   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_clear	code
+                                           _lcd_clear:
+                                           ;	.line	124; lcd.c	void lcd_clear()
+001592   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001594   ffe5
+001596   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001598   ffd9
+                                           ;	.line	126; lcd.c	lcd_send_cmd(0x01);
+00159a   0e01     movlw   0x1              	MOVLW	0x01
+00159c   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00159e   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+0015a0   f008
+0015a2   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+0015a4   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0015a6   ffd9
+0015a8   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_setLine	code
+                                           _lcd_setLine:
+                                           ;	.line	111; lcd.c	void lcd_setLine(unsigned char nb)
+0010fe   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001100   ffe5
+001102   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+001104   ffd9
+001106   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+001108   ffe5
+00110a   c001     movff   0x1, 0xfe5       	MOVFF	r0x01, POSTDEC1
+00110c   ffe5
+00110e   0e02     movlw   0x2              	MOVLW	0x02
+001110   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+001112   f000
+                                           ; ;multiply lit val:0x40 by variable r0x00 and store in r0x00
+                                           ;	.line	114; lcd.c	lcd_ddram(SECOND_LINE*nb);
+001114   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001116   0d40     mullw   0x40             	MULLW	0x40
+001118   cff3     movff   0xff3, 0         	MOVFF	PRODL, r0x00
+00111a   f000
+00111c   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00111e   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001120   ec2d     call    0x145a, 0        	CALL	_lcd_ddram
+001122   f00a
+001124   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	115; lcd.c	for(i=0;i<16;i++) {
+001126   6a01     clrf    0x1, 0           	CLRF	r0x01
+                                           _00149_DS_:
+                                           ;	.line	116; lcd.c	lcd_send_data(' ');
+001128   0e20     movlw   0x20             	MOVLW	0x20
+00112a   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00112c   ecd2     call    0x11a4, 0        	CALL	_lcd_send_data
+00112e   f008
+001130   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	115; lcd.c	for(i=0;i<16;i++) {
+001132   2a01     incf    0x1, 0x1, 0      	INCF	r0x01, F
+001134   0e10     movlw   0x10             	MOVLW	0x10
+001136   5c01     subwf   0x1, 0, 0        	SUBWF	r0x01, W
+001138   e3f7     bnc     0x1128           	BNC	_00149_DS_
+                                           ;	.line	118; lcd.c	lcd_ddram(SECOND_LINE*nb);
+00113a   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00113c   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00113e   ec2d     call    0x145a, 0        	CALL	_lcd_ddram
+001140   f00a
+001142   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+001144   cfe4     movff   0xfe4, 0x1       	MOVFF	PREINC1, r0x01
+001146   f001
+001148   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+00114a   f000
+00114c   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+00114e   ffd9
+001150   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_pushLetter	code
+                                           _lcd_pushLetter:
+                                           ;	.line	101; lcd.c	void lcd_pushLetter(unsigned char l)
+0014d4   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+0014d6   ffe5
+0014d8   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+0014da   ffd9
+0014dc   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+0014de   ffe5
+0014e0   0e02     movlw   0x2              	MOVLW	0x02
+0014e2   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+0014e4   f000
+                                           ;	.line	103; lcd.c	lcd_send_data(l);
+0014e6   5000     movf    0, 0, 0          	MOVF	r0x00, W
+0014e8   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+0014ea   ecd2     call    0x11a4, 0        	CALL	_lcd_send_data
+0014ec   f008
+0014ee   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+0014f0   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0014f2   f000
+0014f4   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0014f6   ffd9
+0014f8   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__putchar	code
+                                           _putchar:
+                                           ;	.line	91; lcd.c	void putchar(char c) __wparam
+001484   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+001486   ffe5
+001488   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+00148a   ffd9
+00148c   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+00148e   ffe5
+001490   6e00     movwf   0, 0             	MOVWF	r0x00
+001492   0100     movlb   0                	BANKSEL	__autoRedirect
+                                           ;	.line	93; lcd.c	if (_autoRedirect) lcd_send_data(c);
+001494   5196     movf    0x96, 0, 0x1     	MOVF	__autoRedirect, W, B
+001496   e005     bz      0x14a2           	BZ	_00138_DS_
+001498   5000     movf    0, 0, 0          	MOVF	r0x00, W
+00149a   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00149c   ecd2     call    0x11a4, 0        	CALL	_lcd_send_data
+00149e   f008
+0014a0   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           _00138_DS_:
+0014a2   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+0014a4   f000
+0014a6   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+0014a8   ffd9
+0014aa   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_print	code
+                                           _lcd_print:
+                                           ;	.line	78; lcd.c	void lcd_print(char* st)
+000f86   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+000f88   ffe5
+000f8a   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+000f8c   ffd9
+000f8e   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+000f90   ffe5
+000f92   c001     movff   0x1, 0xfe5       	MOVFF	r0x01, POSTDEC1
+000f94   ffe5
+000f96   c002     movff   0x2, 0xfe5       	MOVFF	r0x02, POSTDEC1
+000f98   ffe5
+000f9a   c003     movff   0x3, 0xfe5       	MOVFF	r0x03, POSTDEC1
+000f9c   ffe5
+000f9e   c004     movff   0x4, 0xfe5       	MOVFF	r0x04, POSTDEC1
+000fa0   ffe5
+000fa2   c005     movff   0x5, 0xfe5       	MOVFF	r0x05, POSTDEC1
+000fa4   ffe5
+000fa6   c006     movff   0x6, 0xfe5       	MOVFF	r0x06, POSTDEC1
+000fa8   ffe5
+000faa   0e02     movlw   0x2              	MOVLW	0x02
+000fac   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+000fae   f000
+000fb0   0e03     movlw   0x3              	MOVLW	0x03
+000fb2   cfdb     movff   0xfdb, 0x1       	MOVFF	PLUSW2, r0x01
+000fb4   f001
+000fb6   0e04     movlw   0x4              	MOVLW	0x04
+000fb8   cfdb     movff   0xfdb, 0x2       	MOVFF	PLUSW2, r0x02
+000fba   f002
+                                           ;	.line	81; lcd.c	for(i=0;(st[i]!=0) && (i<16);i++) {
+000fbc   6a03     clrf    0x3, 0           	CLRF	r0x03
+                                           _00115_DS_:
+000fbe   5003     movf    0x3, 0, 0        	MOVF	r0x03, W
+000fc0   2400     addwf   0, 0, 0          	ADDWF	r0x00, W
+000fc2   6e04     movwf   0x4, 0           	MOVWF	r0x04
+000fc4   6ae8     clrf    0xe8, 0          	CLRF	WREG
+000fc6   2001     addwfc  0x1, 0, 0        	ADDWFC	r0x01, W
+000fc8   6e05     movwf   0x5, 0           	MOVWF	r0x05
+000fca   6ae8     clrf    0xe8, 0          	CLRF	WREG
+000fcc   2002     addwfc  0x2, 0, 0        	ADDWFC	r0x02, W
+000fce   6e06     movwf   0x6, 0           	MOVWF	r0x06
+000fd0   c004     movff   0x4, 0xfe9       	MOVFF	r0x04, FSR0L
+000fd2   ffe9
+000fd4   c005     movff   0x5, 0xff3       	MOVFF	r0x05, PRODL
+000fd6   fff3
+000fd8   5006     movf    0x6, 0, 0        	MOVF	r0x06, W
+000fda   ec7d     call    0x14fa, 0        	CALL	__gptrget1
+000fdc   f00a
+000fde   6e04     movwf   0x4, 0           	MOVWF	r0x04
+000fe0   5004     movf    0x4, 0, 0        	MOVF	r0x04, W
+000fe2   e00a     bz      0xff8            	BZ	_00117_DS_
+000fe4   0e10     movlw   0x10             	MOVLW	0x10
+000fe6   5c03     subwf   0x3, 0, 0        	SUBWF	r0x03, W
+000fe8   e207     bc      0xff8            	BC	_00117_DS_
+                                           ;	.line	82; lcd.c	lcd_send_data((unsigned char)st[i]);
+000fea   5004     movf    0x4, 0, 0        	MOVF	r0x04, W
+000fec   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+000fee   ecd2     call    0x11a4, 0        	CALL	_lcd_send_data
+000ff0   f008
+000ff2   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	81; lcd.c	for(i=0;(st[i]!=0) && (i<16);i++) {
+000ff4   2a03     incf    0x3, 0x1, 0      	INCF	r0x03, F
+000ff6   d7e3     bra     0xfbe            	BRA	_00115_DS_
+                                           _00117_DS_:
+000ff8   cfe4     movff   0xfe4, 0x6       	MOVFF	PREINC1, r0x06
+000ffa   f006
+000ffc   cfe4     movff   0xfe4, 0x5       	MOVFF	PREINC1, r0x05
+000ffe   f005
+001000   cfe4     movff   0xfe4, 0x4       	MOVFF	PREINC1, r0x04
+001002   f004
+001004   cfe4     movff   0xfe4, 0x3       	MOVFF	PREINC1, r0x03
+001006   f003
+001008   cfe4     movff   0xfe4, 0x2       	MOVFF	PREINC1, r0x02
+00100a   f002
+00100c   cfe4     movff   0xfe4, 0x1       	MOVFF	PREINC1, r0x01
+00100e   f001
+001010   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+001012   f000
+001014   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+001016   ffd9
+001018   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_lcd__lcd_init	code
+                                           _lcd_init:
+                                           ;	.line	15; lcd.c	void lcd_init(unsigned int cristalMhz, unsigned char autoRedirect)
+000d2c   cfd9     movff   0xfd9, 0xfe5     	MOVFF	FSR2L, POSTDEC1
+000d2e   ffe5
+000d30   cfe1     movff   0xfe1, 0xfd9     	MOVFF	FSR1L, FSR2L
+000d32   ffd9
+000d34   c000     movff   0, 0xfe5         	MOVFF	r0x00, POSTDEC1
+000d36   ffe5
+000d38   c001     movff   0x1, 0xfe5       	MOVFF	r0x01, POSTDEC1
+000d3a   ffe5
+000d3c   c002     movff   0x2, 0xfe5       	MOVFF	r0x02, POSTDEC1
+000d3e   ffe5
+000d40   0e02     movlw   0x2              	MOVLW	0x02
+000d42   cfdb     movff   0xfdb, 0         	MOVFF	PLUSW2, r0x00
+000d44   f000
+000d46   0e03     movlw   0x3              	MOVLW	0x03
+000d48   cfdb     movff   0xfdb, 0x1       	MOVFF	PLUSW2, r0x01
+000d4a   f001
+000d4c   0e04     movlw   0x4              	MOVLW	0x04
+000d4e   cfdb     movff   0xfdb, 0x2       	MOVFF	PLUSW2, r0x02
+000d50   f002
+                                           ;	.line	17; lcd.c	_cristalMhz = cristalMhz;
+000d52   c000     movff   0, 0x98          	MOVFF	r0x00, __cristalMhz
+000d54   f098
+000d56   c001     movff   0x1, 0x99        	MOVFF	r0x01, (__cristalMhz + 1)
+000d58   f099
+                                           ;	.line	18; lcd.c	_autoRedirect = autoRedirect;
+000d5a   c002     movff   0x2, 0x96        	MOVFF	r0x02, __autoRedirect
+000d5c   f096
+                                           ;	.line	20; lcd.c	if (autoRedirect) {
+000d5e   5002     movf    0x2, 0, 0        	MOVF	r0x02, W
+000d60   e007     bz      0xd70            	BZ	_00106_DS_
+000d62   0100     movlb   0                	BANKSEL	_stdout
+                                           ;	.line	21; lcd.c	stdout = STREAM_USER;
+000d64   6b8d     clrf    0x8d, 0x1        	CLRF	_stdout, B
+000d66   0100     movlb   0                	BANKSEL	(_stdout + 1)
+000d68   6b8e     clrf    0x8e, 0x1        	CLRF	(_stdout + 1), B
+000d6a   0e2f     movlw   0x2f             	MOVLW	0x2f
+000d6c   0100     movlb   0                	BANKSEL	(_stdout + 2)
+000d6e   6f8f     movwf   0x8f, 0x1        	MOVWF	(_stdout + 2), B
+                                           _00106_DS_:
+                                           ;	.line	24; lcd.c	LCD_DATA_CNF = 0;
+000d70   6a95     clrf    0x95, 0          	CLRF	_TRISD
+                                           ;	.line	25; lcd.c	LCD_RS_CNF = 0;
+000d72   9494     bcf     0x94, 0x2, 0     	BCF	_TRISCbits, 2
+                                           ;	.line	26; lcd.c	LCD_RW_CNF = 0;
+000d74   9294     bcf     0x94, 0x1, 0     	BCF	_TRISCbits, 1
+                                           ;	.line	27; lcd.c	LCD_E_CNF = 0;
+000d76   9094     bcf     0x94, 0, 0       	BCF	_TRISCbits, 0
+                                           ;	.line	28; lcd.c	LCD_E=0;
+000d78   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ; ;multiply lit val:0x04 by variable r0x00 and store in r0x01
+                                           ;	.line	31; lcd.c	delay1ktcy(cristalMhz*4); /* Wait for 16ms after poweron (here 16ms) */
+000d7a   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000d7c   0d04     mullw   0x4              	MULLW	0x04
+000d7e   cff3     movff   0xff3, 0x1       	MOVFF	PRODL, r0x01
+000d80   f001
+000d82   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+000d84   ec4d     call    0x109a, 0        	CALL	_delay1ktcy
+000d86   f008
+                                           ;	.line	33; lcd.c	LCD_DATA = 0x30;
+000d88   0e30     movlw   0x30             	MOVLW	0x30
+000d8a   6e8c     movwf   0x8c, 0          	MOVWF	_LATD
+                                           ;	.line	34; lcd.c	LCD_RS = 0;
+000d8c   948b     bcf     0x8b, 0x2, 0     	BCF	_LATCbits, 2
+                                           ;	.line	35; lcd.c	LCD_RW = 0;
+000d8e   928b     bcf     0x8b, 0x1, 0     	BCF	_LATCbits, 1
+                                           ;	.line	38; lcd.c	LCD_E=1;
+000d90   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+                                           ;	.line	39; lcd.c	delay1ktcy(cristalMhz); /* Wait for 4.1ms */
+000d92   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000d94   ec4d     call    0x109a, 0        	CALL	_delay1ktcy
+000d96   f008
+                                           ; ;multiply lit val:0x03 by variable r0x00 and store in r0x01
+                                           ;	.line	40; lcd.c	delay10tcy(3*cristalMhz);
+000d98   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000d9a   0d03     mullw   0x3              	MULLW	0x03
+000d9c   cff3     movff   0xff3, 0x1       	MOVFF	PRODL, r0x01
+000d9e   f001
+000da0   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+000da2   ec73     call    0x10e6, 0        	CALL	_delay10tcy
+000da4   f008
+                                           ;	.line	43; lcd.c	LCD_E=0;
+000da6   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ; ;multiply lit val:0x08 by variable r0x00 and store in r0x01
+                                           ;	.line	44; lcd.c	delay100tcy(cristalMhz*8);
+000da8   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000daa   0d08     mullw   0x8              	MULLW	0x08
+000dac   cff3     movff   0xff3, 0x1       	MOVFF	PRODL, r0x01
+000dae   f001
+000db0   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+000db2   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+000db4   f008
+                                           ;	.line	45; lcd.c	LCD_E=1;
+000db6   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+                                           ;	.line	46; lcd.c	delay10tcy(3+cristalMhz); /* Wait for 100µs */
+000db8   0e03     movlw   0x3              	MOVLW	0x03
+000dba   2400     addwf   0, 0, 0          	ADDWF	r0x00, W
+000dbc   6e02     movwf   0x2, 0           	MOVWF	r0x02
+000dbe   5002     movf    0x2, 0, 0        	MOVF	r0x02, W
+000dc0   ec73     call    0x10e6, 0        	CALL	_delay10tcy
+000dc2   f008
+                                           ;	.line	47; lcd.c	LCD_E=0;
+000dc4   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ;	.line	48; lcd.c	delay100tcy(cristalMhz*8);
+000dc6   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+000dc8   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+000dca   f008
+                                           ;	.line	49; lcd.c	LCD_E=1;
+000dcc   808b     bsf     0x8b, 0, 0       	BSF	_LATCbits, 0
+                                           ; ;multiply lit val:0x02 by variable r0x00 and store in r0x00
+                                           ;	.line	50; lcd.c	delay10tcy(2*cristalMhz); /* Wait for 42µs */
+000dce   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000dd0   0d02     mullw   0x2              	MULLW	0x02
+000dd2   cff3     movff   0xff3, 0         	MOVFF	PRODL, r0x00
+000dd4   f000
+000dd6   5000     movf    0, 0, 0          	MOVF	r0x00, W
+000dd8   ec73     call    0x10e6, 0        	CALL	_delay10tcy
+000dda   f008
+                                           ;	.line	51; lcd.c	LCD_E=0;
+000ddc   908b     bcf     0x8b, 0, 0       	BCF	_LATCbits, 0
+                                           ;	.line	52; lcd.c	delay100tcy(cristalMhz*8);
+000dde   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+000de0   ec60     call    0x10c0, 0        	CALL	_delay100tcy
+000de2   f008
+                                           ;	.line	57; lcd.c	lcd_send_cmd(0x08);
+000de4   0e08     movlw   0x8              	MOVLW	0x08
+000de6   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+000de8   eca9     call    0x1152, 0        	CALL	_lcd_send_cmd
+000dea   f008
+000dec   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	60; lcd.c	lcd_clear();
+000dee   ecc9     call    0x1592, 0        	CALL	_lcd_clear
+000df0   f00a
+                                           ;	.line	63; lcd.c	lcd_emode(INC_CURSOR);
+000df2   0e02     movlw   0x2              	MOVLW	0x02
+000df4   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+000df6   ec01     call    0x1402, 0        	CALL	_lcd_emode
+000df8   f00a
+000dfa   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	66; lcd.c	lcd_fmode(IFACE_8BIT | DUAL_LINE);
+000dfc   0e18     movlw   0x18             	MOVLW	0x18
+000dfe   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+000e00   ecbf     call    0x137e, 0        	CALL	_lcd_fmode
+000e02   f009
+000e04   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+                                           ;	.line	69; lcd.c	lcd_dmode(DISPLAY_ON | CURSOR_ON | BLINK_ON);
+000e06   0e07     movlw   0x7              	MOVLW	0x07
+000e08   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+000e0a   eceb     call    0x13d6, 0        	CALL	_lcd_dmode
+000e0c   f009
+000e0e   52e6     movf    0xe6, 0x1, 0     	MOVF	POSTINC1, F
+000e10   cfe4     movff   0xfe4, 0x2       	MOVFF	PREINC1, r0x02
+000e12   f002
+000e14   cfe4     movff   0xfe4, 0x1       	MOVFF	PREINC1, r0x01
+000e16   f001
+000e18   cfe4     movff   0xfe4, 0         	MOVFF	PREINC1, r0x00
+000e1a   f000
+000e1c   cfe4     movff   0xfe4, 0xfd9     	MOVFF	PREINC1, FSR2L
+000e1e   ffd9
+000e20   0012     return  0                	RETURN	
+                                           
+                                           
+                                           
+                                           ; Statistics:
+                                           ; code size:	 1054 (0x041e) bytes ( 0.80%)
+                                           ;           	  527 (0x020f) words
+                                           ; udata size:	    2 (0x0002) bytes ( 0.11%)
+                                           ; access size:	    7 (0x0007) bytes
+                                           
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 3.4.1 #9075 (Sep 21 2014) (Linux)
+                                           ; This file was generated Sun Sep 21 19:43:34 2014
+                                           ;--------------------------------------------------------
+                                           ; PIC16 port for the Microchip 16-bit core micros
+                                           ;--------------------------------------------------------
+                                           	list	p=18f4550
+                                           	radix	dec
+                                           	CONFIG	PLLDIV=5
+                                           	CONFIG	CPUDIV=OSC1_PLL2
+                                           	CONFIG	USBDIV=2
+                                           	CONFIG	FOSC=HSPLL_HS
+                                           	CONFIG	VREGEN=ON
+                                           	CONFIG	WDT=OFF
+                                           	CONFIG	PBADEN=OFF
+                                           	CONFIG	XINST=OFF
+                                           	CONFIG	LVP=OFF
+                                           	CONFIG	CP0=OFF
+                                           
+                                           
+                                           ;--------------------------------------------------------
+                                           ; public variables in this module
+                                           ;--------------------------------------------------------
+                                           	global	_main
+                                           
+                                           ;--------------------------------------------------------
+                                           ; extern variables in this module
+                                           ;--------------------------------------------------------
+                                           	extern	_SPPCFGbits
+                                           	extern	_SPPEPSbits
+                                           	extern	_SPPCONbits
+                                           	extern	_UFRMLbits
+                                           	extern	_UFRMHbits
+                                           	extern	_UIRbits
+                                           	extern	_UIEbits
+                                           	extern	_UEIRbits
+                                           	extern	_UEIEbits
+                                           	extern	_USTATbits
+                                           	extern	_UCONbits
+                                           	extern	_UADDRbits
+                                           	extern	_UCFGbits
+                                           	extern	_UEP0bits
+                                           	extern	_UEP1bits
+                                           	extern	_UEP2bits
+                                           	extern	_UEP3bits
+                                           	extern	_UEP4bits
+                                           	extern	_UEP5bits
+                                           	extern	_UEP6bits
+                                           	extern	_UEP7bits
+                                           	extern	_UEP8bits
+                                           	extern	_UEP9bits
+                                           	extern	_UEP10bits
+                                           	extern	_UEP11bits
+                                           	extern	_UEP12bits
+                                           	extern	_UEP13bits
+                                           	extern	_UEP14bits
+                                           	extern	_UEP15bits
+                                           	extern	_PORTAbits
+                                           	extern	_PORTBbits
+                                           	extern	_PORTCbits
+                                           	extern	_PORTDbits
+                                           	extern	_PORTEbits
+                                           	extern	_LATAbits
+                                           	extern	_LATBbits
+                                           	extern	_LATCbits
+                                           	extern	_LATDbits
+                                           	extern	_LATEbits
+                                           	extern	_DDRAbits
+                                           	extern	_TRISAbits
+                                           	extern	_DDRBbits
+                                           	extern	_TRISBbits
+                                           	extern	_DDRCbits
+                                           	extern	_TRISCbits
+                                           	extern	_DDRDbits
+                                           	extern	_TRISDbits
+                                           	extern	_DDREbits
+                                           	extern	_TRISEbits
+                                           	extern	_OSCTUNEbits
+                                           	extern	_PIE1bits
+                                           	extern	_PIR1bits
+                                           	extern	_IPR1bits
+                                           	extern	_PIE2bits
+                                           	extern	_PIR2bits
+                                           	extern	_IPR2bits
+                                           	extern	_EECON1bits
+                                           	extern	_RCSTAbits
+                                           	extern	_TXSTAbits
+                                           	extern	_T3CONbits
+                                           	extern	_CMCONbits
+                                           	extern	_CVRCONbits
+                                           	extern	_CCP1ASbits
+                                           	extern	_ECCP1ASbits
+                                           	extern	_CCP1DELbits
+                                           	extern	_ECCP1DELbits
+                                           	extern	_BAUDCONbits
+                                           	extern	_BAUDCTLbits
+                                           	extern	_CCP2CONbits
+                                           	extern	_CCP1CONbits
+                                           	extern	_ECCP1CONbits
+                                           	extern	_ADCON2bits
+                                           	extern	_ADCON1bits
+                                           	extern	_ADCON0bits
+                                           	extern	_SSPCON2bits
+                                           	extern	_SSPCON1bits
+                                           	extern	_SSPSTATbits
+                                           	extern	_T2CONbits
+                                           	extern	_T1CONbits
+                                           	extern	_RCONbits
+                                           	extern	_WDTCONbits
+                                           	extern	_HLVDCONbits
+                                           	extern	_LVDCONbits
+                                           	extern	_OSCCONbits
+                                           	extern	_T0CONbits
+                                           	extern	_STATUSbits
+                                           	extern	_INTCON3bits
+                                           	extern	_INTCON2bits
+                                           	extern	_INTCONbits
+                                           	extern	_STKPTRbits
+                                           	extern	_stdin
+                                           	extern	_stdout
+                                           	extern	_SPPDATA
+                                           	extern	_SPPCFG
+                                           	extern	_SPPEPS
+                                           	extern	_SPPCON
+                                           	extern	_UFRM
+                                           	extern	_UFRML
+                                           	extern	_UFRMH
+                                           	extern	_UIR
+                                           	extern	_UIE
+                                           	extern	_UEIR
+                                           	extern	_UEIE
+                                           	extern	_USTAT
+                                           	extern	_UCON
+                                           	extern	_UADDR
+                                           	extern	_UCFG
+                                           	extern	_UEP0
+                                           	extern	_UEP1
+                                           	extern	_UEP2
+                                           	extern	_UEP3
+                                           	extern	_UEP4
+                                           	extern	_UEP5
+                                           	extern	_UEP6
+                                           	extern	_UEP7
+                                           	extern	_UEP8
+                                           	extern	_UEP9
+                                           	extern	_UEP10
+                                           	extern	_UEP11
+                                           	extern	_UEP12
+                                           	extern	_UEP13
+                                           	extern	_UEP14
+                                           	extern	_UEP15
+                                           	extern	_PORTA
+                                           	extern	_PORTB
+                                           	extern	_PORTC
+                                           	extern	_PORTD
+                                           	extern	_PORTE
+                                           	extern	_LATA
+                                           	extern	_LATB
+                                           	extern	_LATC
+                                           	extern	_LATD
+                                           	extern	_LATE
+                                           	extern	_DDRA
+                                           	extern	_TRISA
+                                           	extern	_DDRB
+                                           	extern	_TRISB
+                                           	extern	_DDRC
+                                           	extern	_TRISC
+                                           	extern	_DDRD
+                                           	extern	_TRISD
+                                           	extern	_DDRE
+                                           	extern	_TRISE
+                                           	extern	_OSCTUNE
+                                           	extern	_PIE1
+                                           	extern	_PIR1
+                                           	extern	_IPR1
+                                           	extern	_PIE2
+                                           	extern	_PIR2
+                                           	extern	_IPR2
+                                           	extern	_EECON1
+                                           	extern	_EECON2
+                                           	extern	_EEDATA
+                                           	extern	_EEADR
+                                           	extern	_RCSTA
+                                           	extern	_TXSTA
+                                           	extern	_TXREG
+                                           	extern	_RCREG
+                                           	extern	_SPBRG
+                                           	extern	_SPBRGH
+                                           	extern	_T3CON
+                                           	extern	_TMR3
+                                           	extern	_TMR3L
+                                           	extern	_TMR3H
+                                           	extern	_CMCON
+                                           	extern	_CVRCON
+                                           	extern	_CCP1AS
+                                           	extern	_ECCP1AS
+                                           	extern	_CCP1DEL
+                                           	extern	_ECCP1DEL
+                                           	extern	_BAUDCON
+                                           	extern	_BAUDCTL
+                                           	extern	_CCP2CON
+                                           	extern	_CCPR2
+                                           	extern	_CCPR2L
+                                           	extern	_CCPR2H
+                                           	extern	_CCP1CON
+                                           	extern	_ECCP1CON
+                                           	extern	_CCPR1
+                                           	extern	_CCPR1L
+                                           	extern	_CCPR1H
+                                           	extern	_ADCON2
+                                           	extern	_ADCON1
+                                           	extern	_ADCON0
+                                           	extern	_ADRES
+                                           	extern	_ADRESL
+                                           	extern	_ADRESH
+                                           	extern	_SSPCON2
+                                           	extern	_SSPCON1
+                                           	extern	_SSPSTAT
+                                           	extern	_SSPADD
+                                           	extern	_SSPBUF
+                                           	extern	_T2CON
+                                           	extern	_PR2
+                                           	extern	_TMR2
+                                           	extern	_T1CON
+                                           	extern	_TMR1
+                                           	extern	_TMR1L
+                                           	extern	_TMR1H
+                                           	extern	_RCON
+                                           	extern	_WDTCON
+                                           	extern	_HLVDCON
+                                           	extern	_LVDCON
+                                           	extern	_OSCCON
+                                           	extern	_T0CON
+                                           	extern	_TMR0
+                                           	extern	_TMR0L
+                                           	extern	_TMR0H
+                                           	extern	_STATUS
+                                           	extern	_FSR2L
+                                           	extern	_FSR2H
+                                           	extern	_PLUSW2
+                                           	extern	_PREINC2
+                                           	extern	_POSTDEC2
+                                           	extern	_POSTINC2
+                                           	extern	_INDF2
+                                           	extern	_BSR
+                                           	extern	_FSR1L
+                                           	extern	_FSR1H
+                                           	extern	_PLUSW1
+                                           	extern	_PREINC1
+                                           	extern	_POSTDEC1
+                                           	extern	_POSTINC1
+                                           	extern	_INDF1
+                                           	extern	_WREG
+                                           	extern	_FSR0L
+                                           	extern	_FSR0H
+                                           	extern	_PLUSW0
+                                           	extern	_PREINC0
+                                           	extern	_POSTDEC0
+                                           	extern	_POSTINC0
+                                           	extern	_INDF0
+                                           	extern	_INTCON3
+                                           	extern	_INTCON2
+                                           	extern	_INTCON
+                                           	extern	_PROD
+                                           	extern	_PRODL
+                                           	extern	_PRODH
+                                           	extern	_TABLAT
+                                           	extern	_TBLPTR
+                                           	extern	_TBLPTRL
+                                           	extern	_TBLPTRH
+                                           	extern	_TBLPTRU
+                                           	extern	_PC
+                                           	extern	_PCL
+                                           	extern	_PCLATH
+                                           	extern	_PCLATU
+                                           	extern	_STKPTR
+                                           	extern	_TOS
+                                           	extern	_TOSL
+                                           	extern	_TOSH
+                                           	extern	_TOSU
+                                           	extern	_lcd_init
+                                           	extern	_printf
+                                           
+                                           ;--------------------------------------------------------
+                                           ;	Equates to used internal registers
+                                           ;--------------------------------------------------------
+                                           FSR1L	equ	0xfe1
+                                           POSTDEC1	equ	0xfe5
+                                           
+                                           
+                                           ; Internal registers
+                                           .registers	udata_ovr	0x0000
+                                           r0x00	res	1
+                                           r0x01	res	1
+                                           r0x02	res	1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; interrupt vector
+                                           ;--------------------------------------------------------
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global & static initialisations
+                                           ;--------------------------------------------------------
+                                           ; I code from now on!
+                                           ; ; Starting pCode block
+                                           S_main__main	code
+                                           _main:
+                                           ;	.line	23; main.c	lcd_init(48, 1);
+00123a   0e01     movlw   0x1              	MOVLW	0x01
+00123c   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00123e   0e00     movlw   0                	MOVLW	0x00
+001240   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001242   0e30     movlw   0x30             	MOVLW	0x30
+001244   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001246   ec96     call    0xd2c, 0         	CALL	_lcd_init
+001248   f006
+00124a   0e03     movlw   0x3              	MOVLW	0x03
+00124c   26e1     addwf   0xe1, 0x1, 0     	ADDWF	FSR1L, F
+                                           ;	.line	25; main.c	printf("Coucou!");
+00124e   0e00     movlw   0                	MOVLW	UPPER(___str_0)
+001250   6e02     movwf   0x2, 0           	MOVWF	r0x02
+001252   0e12     movlw   0x12             	MOVLW	HIGH(___str_0)
+001254   6e01     movwf   0x1, 0           	MOVWF	r0x01
+001256   0e72     movlw   0x72             	MOVLW	LOW(___str_0)
+001258   6e00     movwf   0, 0             	MOVWF	r0x00
+00125a   5002     movf    0x2, 0, 0        	MOVF	r0x02, W
+00125c   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+00125e   5001     movf    0x1, 0, 0        	MOVF	r0x01, W
+001260   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001262   5000     movf    0, 0, 0          	MOVF	r0x00, W
+001264   6ee5     movwf   0xe5, 0          	MOVWF	POSTDEC1
+001266   ec0d     call    0x101a, 0        	CALL	_printf
+001268   f008
+00126a   0e03     movlw   0x3              	MOVLW	0x03
+00126c   26e1     addwf   0xe1, 0x1, 0     	ADDWF	FSR1L, F
+                                           _00106_DS_:
+                                           ;	.line	26; main.c	while (1);
+00126e   d7ff     bra     0x126e           	BRA	_00106_DS_
+001270   0012     return  0                	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           ___str_0:
+001272   6f43     movwf   0x43, 0x1        	DB	0x43, 0x6f, 0x75, 0x63, 0x6f, 0x75, 0x21, 0x00
+001274   6375     cpfseq  0x75, 0x1        
+001276   756f     btg     0x6f, 0x2, 0x1   
+001278   0021     dw      0x21             
+                                           
+                                           
+                                           ; Statistics:
+                                           ; code size:	   58 (0x003a) bytes ( 0.04%)
+                                           ;           	   29 (0x001d) words
+                                           ; udata size:	    0 (0x0000) bytes ( 0.00%)
+                                           ; access size:	    3 (0x0003) bytes
+                                           
+                                           
+                                           	end
+                                           ;--------------------------------------------------------------------------
+                                           ;  p18fxxx.inc
+                                           ;
+                                           ;  Copyright (C) 2005, Vangelis Rokas <vrokas AT otenet.gr>
+                                           ;
+                                           ;  This library is free software; you can redistribute it and/or modify it
+                                           ;  under the terms of the GNU General Public License as published by the
+                                           ;  Free Software Foundation; either version 2, or (at your option) any
+                                           ;  later version.
+                                           ;
+                                           ;  This library is distributed in the hope that it will be useful,
+                                           ;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                                           ;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+                                           ;  GNU General Public License for more details.
+                                           ;
+                                           ;  You should have received a copy of the GNU General Public License 
+                                           ;  along with this library; see the file COPYING. If not, write to the
+                                           ;  Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+                                           ;   MA 02110-1301, USA.
+                                           ;
+                                           ;  As a special exception, if you link this library with other files,
+                                           ;  some of which are compiled with SDCC, to produce an executable,
+                                           ;  this library does not by itself cause the resulting executable to
+                                           ;  be covered by the GNU General Public License. This exception does
+                                           ;  not however invalidate any other reasons why the executable file
+                                           ;  might be covered by the GNU General Public License.
+                                           ;--------------------------------------------------------------------------
+                                           
+                                           #ifndef __P18FXXX__
+                                           #define	__P18FXXX__	1
+                                           
+                                           
+                                           		list	r=dec, n=96, st=off, mm=off
+                                           
+                                           	        nolist
+                                           #endif
+                                           ;--------------------------------------------------------------------------
+                                           ;  p18fxxx.inc
+                                           ;
+                                           ;  Copyright (C) 2005, Vangelis Rokas <vrokas AT otenet.gr>
+                                           ;
+                                           ;  This library is free software; you can redistribute it and/or modify it
+                                           ;  under the terms of the GNU General Public License as published by the
+                                           ;  Free Software Foundation; either version 2, or (at your option) any
+                                           ;  later version.
+                                           ;
+                                           ;  This library is distributed in the hope that it will be useful,
+                                           ;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                                           ;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+                                           ;  GNU General Public License for more details.
+                                           ;
+                                           ;  You should have received a copy of the GNU General Public License 
+                                           ;  along with this library; see the file COPYING. If not, write to the
+                                           ;  Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+                                           ;   MA 02110-1301, USA.
+                                           ;
+                                           ;  As a special exception, if you link this library with other files,
+                                           ;  some of which are compiled with SDCC, to produce an executable,
+                                           ;  this library does not by itself cause the resulting executable to
+                                           ;  be covered by the GNU General Public License. This exception does
+                                           ;  not however invalidate any other reasons why the executable file
+                                           ;  might be covered by the GNU General Public License.
+                                           ;--------------------------------------------------------------------------
+                                           
+                                           #ifndef __P18FXXX__
+                                           #define	__P18FXXX__	1
+                                           
+                                           
+                                           		list	r=dec, n=96, st=off, mm=off
+                                           
+                                           	        nolist
+                                           #endif
+                                           ;--------------------------------------------------------------------------
+                                           ;  p18fxxx.inc
+                                           ;
+                                           ;  Copyright (C) 2005, Vangelis Rokas <vrokas AT otenet.gr>
+                                           ;
+                                           ;  This library is free software; you can redistribute it and/or modify it
+                                           ;  under the terms of the GNU General Public License as published by the
+                                           ;  Free Software Foundation; either version 2, or (at your option) any
+                                           ;  later version.
+                                           ;
+                                           ;  This library is distributed in the hope that it will be useful,
+                                           ;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+                                           ;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+                                           ;  GNU General Public License for more details.
+                                           ;
+                                           ;  You should have received a copy of the GNU General Public License 
+                                           ;  along with this library; see the file COPYING. If not, write to the
+                                           ;  Free Software Foundation, 51 Franklin Street, Fifth Floor, Boston,
+                                           ;   MA 02110-1301, USA.
+                                           ;
+                                           ;  As a special exception, if you link this library with other files,
+                                           ;  some of which are compiled with SDCC, to produce an executable,
+                                           ;  this library does not by itself cause the resulting executable to
+                                           ;  be covered by the GNU General Public License. This exception does
+                                           ;  not however invalidate any other reasons why the executable file
+                                           ;  might be covered by the GNU General Public License.
+                                           ;--------------------------------------------------------------------------
+                                           
+                                           #ifndef __P18FXXX__
+                                           #define	__P18FXXX__	1
+                                           
+                                           
+                                           		list	r=dec, n=96, st=off, mm=off
+                                           
+                                           	        nolist
+                                           #endif

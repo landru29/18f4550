@@ -1,0 +1,1320 @@
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.4.1 #9075 (Sep 21 2014) (Linux)
+                      00004 ; This file was generated Sun Sep 21 19:43:33 2014
+                      00005 ;--------------------------------------------------------
+                      00006 ; PIC16 port for the Microchip 16-bit core micros
+                      00007 ;--------------------------------------------------------
+                      00008         list    p=18f4550
+                      00009         radix   dec
+                      00010 
+                      00011 
+                      00012 ;--------------------------------------------------------
+                      00013 ; public variables in this module
+                      00014 ;--------------------------------------------------------
+  0000                00015         global  _lcd_init
+  0000                00016         global  _lcd_print
+  0000                00017         global  _putchar
+  0000                00018         global  _lcd_pushLetter
+  0000                00019         global  _lcd_setLine
+  0000                00020         global  _lcd_clear
+  0000                00021         global  _lcd_home
+  0000                00022         global  _lcd_ddram
+  0000                00023         global  _lcd_emode
+  0000                00024         global  _lcd_dmode
+  0000                00025         global  _lcd_cmode
+  0000                00026         global  _lcd_fmode
+  0000                00027         global  _lcd_send_cmd
+  0000                00028         global  _lcd_send_data
+  0000                00029         global  _lcd_busy
+  0000                00030         global  __cristalMhz
+  0000                00031         global  __autoRedirect
+                      00032 
+                      00033 ;--------------------------------------------------------
+                      00034 ; extern variables in this module
+                      00035 ;--------------------------------------------------------
+  0000                00036         extern  __gptrget1
+  0000                00037         extern  _SPPCFGbits
+  0000                00038         extern  _SPPEPSbits
+  0000                00039         extern  _SPPCONbits
+  0000                00040         extern  _UFRMLbits
+  0000                00041         extern  _UFRMHbits
+  0000                00042         extern  _UIRbits
+  0000                00043         extern  _UIEbits
+  0000                00044         extern  _UEIRbits
+  0000                00045         extern  _UEIEbits
+  0000                00046         extern  _USTATbits
+  0000                00047         extern  _UCONbits
+  0000                00048         extern  _UADDRbits
+  0000                00049         extern  _UCFGbits
+  0000                00050         extern  _UEP0bits
+  0000                00051         extern  _UEP1bits
+  0000                00052         extern  _UEP2bits
+  0000                00053         extern  _UEP3bits
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000                00054         extern  _UEP4bits
+  0000                00055         extern  _UEP5bits
+  0000                00056         extern  _UEP6bits
+  0000                00057         extern  _UEP7bits
+  0000                00058         extern  _UEP8bits
+  0000                00059         extern  _UEP9bits
+  0000                00060         extern  _UEP10bits
+  0000                00061         extern  _UEP11bits
+  0000                00062         extern  _UEP12bits
+  0000                00063         extern  _UEP13bits
+  0000                00064         extern  _UEP14bits
+  0000                00065         extern  _UEP15bits
+  0000                00066         extern  _PORTAbits
+  0000                00067         extern  _PORTBbits
+  0000                00068         extern  _PORTCbits
+  0000                00069         extern  _PORTDbits
+  0000                00070         extern  _PORTEbits
+  0000                00071         extern  _LATAbits
+  0000                00072         extern  _LATBbits
+  0000                00073         extern  _LATCbits
+  0000                00074         extern  _LATDbits
+  0000                00075         extern  _LATEbits
+  0000                00076         extern  _DDRAbits
+  0000                00077         extern  _TRISAbits
+  0000                00078         extern  _DDRBbits
+  0000                00079         extern  _TRISBbits
+  0000                00080         extern  _DDRCbits
+  0000                00081         extern  _TRISCbits
+  0000                00082         extern  _DDRDbits
+  0000                00083         extern  _TRISDbits
+  0000                00084         extern  _DDREbits
+  0000                00085         extern  _TRISEbits
+  0000                00086         extern  _OSCTUNEbits
+  0000                00087         extern  _PIE1bits
+  0000                00088         extern  _PIR1bits
+  0000                00089         extern  _IPR1bits
+  0000                00090         extern  _PIE2bits
+  0000                00091         extern  _PIR2bits
+  0000                00092         extern  _IPR2bits
+  0000                00093         extern  _EECON1bits
+  0000                00094         extern  _RCSTAbits
+  0000                00095         extern  _TXSTAbits
+  0000                00096         extern  _T3CONbits
+  0000                00097         extern  _CMCONbits
+  0000                00098         extern  _CVRCONbits
+  0000                00099         extern  _CCP1ASbits
+  0000                00100         extern  _ECCP1ASbits
+  0000                00101         extern  _CCP1DELbits
+  0000                00102         extern  _ECCP1DELbits
+  0000                00103         extern  _BAUDCONbits
+  0000                00104         extern  _BAUDCTLbits
+  0000                00105         extern  _CCP2CONbits
+  0000                00106         extern  _CCP1CONbits
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000                00107         extern  _ECCP1CONbits
+  0000                00108         extern  _ADCON2bits
+  0000                00109         extern  _ADCON1bits
+  0000                00110         extern  _ADCON0bits
+  0000                00111         extern  _SSPCON2bits
+  0000                00112         extern  _SSPCON1bits
+  0000                00113         extern  _SSPSTATbits
+  0000                00114         extern  _T2CONbits
+  0000                00115         extern  _T1CONbits
+  0000                00116         extern  _RCONbits
+  0000                00117         extern  _WDTCONbits
+  0000                00118         extern  _HLVDCONbits
+  0000                00119         extern  _LVDCONbits
+  0000                00120         extern  _OSCCONbits
+  0000                00121         extern  _T0CONbits
+  0000                00122         extern  _STATUSbits
+  0000                00123         extern  _INTCON3bits
+  0000                00124         extern  _INTCON2bits
+  0000                00125         extern  _INTCONbits
+  0000                00126         extern  _STKPTRbits
+  0000                00127         extern  _stdin
+  0000                00128         extern  _stdout
+  0000                00129         extern  _SPPDATA
+  0000                00130         extern  _SPPCFG
+  0000                00131         extern  _SPPEPS
+  0000                00132         extern  _SPPCON
+  0000                00133         extern  _UFRM
+  0000                00134         extern  _UFRML
+  0000                00135         extern  _UFRMH
+  0000                00136         extern  _UIR
+  0000                00137         extern  _UIE
+  0000                00138         extern  _UEIR
+  0000                00139         extern  _UEIE
+  0000                00140         extern  _USTAT
+  0000                00141         extern  _UCON
+  0000                00142         extern  _UADDR
+  0000                00143         extern  _UCFG
+  0000                00144         extern  _UEP0
+  0000                00145         extern  _UEP1
+  0000                00146         extern  _UEP2
+  0000                00147         extern  _UEP3
+  0000                00148         extern  _UEP4
+  0000                00149         extern  _UEP5
+  0000                00150         extern  _UEP6
+  0000                00151         extern  _UEP7
+  0000                00152         extern  _UEP8
+  0000                00153         extern  _UEP9
+  0000                00154         extern  _UEP10
+  0000                00155         extern  _UEP11
+  0000                00156         extern  _UEP12
+  0000                00157         extern  _UEP13
+  0000                00158         extern  _UEP14
+  0000                00159         extern  _UEP15
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000                00160         extern  _PORTA
+  0000                00161         extern  _PORTB
+  0000                00162         extern  _PORTC
+  0000                00163         extern  _PORTD
+  0000                00164         extern  _PORTE
+  0000                00165         extern  _LATA
+  0000                00166         extern  _LATB
+  0000                00167         extern  _LATC
+  0000                00168         extern  _LATD
+  0000                00169         extern  _LATE
+  0000                00170         extern  _DDRA
+  0000                00171         extern  _TRISA
+  0000                00172         extern  _DDRB
+  0000                00173         extern  _TRISB
+  0000                00174         extern  _DDRC
+  0000                00175         extern  _TRISC
+  0000                00176         extern  _DDRD
+  0000                00177         extern  _TRISD
+  0000                00178         extern  _DDRE
+  0000                00179         extern  _TRISE
+  0000                00180         extern  _OSCTUNE
+  0000                00181         extern  _PIE1
+  0000                00182         extern  _PIR1
+  0000                00183         extern  _IPR1
+  0000                00184         extern  _PIE2
+  0000                00185         extern  _PIR2
+  0000                00186         extern  _IPR2
+  0000                00187         extern  _EECON1
+  0000                00188         extern  _EECON2
+  0000                00189         extern  _EEDATA
+  0000                00190         extern  _EEADR
+  0000                00191         extern  _RCSTA
+  0000                00192         extern  _TXSTA
+  0000                00193         extern  _TXREG
+  0000                00194         extern  _RCREG
+  0000                00195         extern  _SPBRG
+  0000                00196         extern  _SPBRGH
+  0000                00197         extern  _T3CON
+  0000                00198         extern  _TMR3
+  0000                00199         extern  _TMR3L
+  0000                00200         extern  _TMR3H
+  0000                00201         extern  _CMCON
+  0000                00202         extern  _CVRCON
+  0000                00203         extern  _CCP1AS
+  0000                00204         extern  _ECCP1AS
+  0000                00205         extern  _CCP1DEL
+  0000                00206         extern  _ECCP1DEL
+  0000                00207         extern  _BAUDCON
+  0000                00208         extern  _BAUDCTL
+  0000                00209         extern  _CCP2CON
+  0000                00210         extern  _CCPR2
+  0000                00211         extern  _CCPR2L
+  0000                00212         extern  _CCPR2H
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000                00213         extern  _CCP1CON
+  0000                00214         extern  _ECCP1CON
+  0000                00215         extern  _CCPR1
+  0000                00216         extern  _CCPR1L
+  0000                00217         extern  _CCPR1H
+  0000                00218         extern  _ADCON2
+  0000                00219         extern  _ADCON1
+  0000                00220         extern  _ADCON0
+  0000                00221         extern  _ADRES
+  0000                00222         extern  _ADRESL
+  0000                00223         extern  _ADRESH
+  0000                00224         extern  _SSPCON2
+  0000                00225         extern  _SSPCON1
+  0000                00226         extern  _SSPSTAT
+  0000                00227         extern  _SSPADD
+  0000                00228         extern  _SSPBUF
+  0000                00229         extern  _T2CON
+  0000                00230         extern  _PR2
+  0000                00231         extern  _TMR2
+  0000                00232         extern  _T1CON
+  0000                00233         extern  _TMR1
+  0000                00234         extern  _TMR1L
+  0000                00235         extern  _TMR1H
+  0000                00236         extern  _RCON
+  0000                00237         extern  _WDTCON
+  0000                00238         extern  _HLVDCON
+  0000                00239         extern  _LVDCON
+  0000                00240         extern  _OSCCON
+  0000                00241         extern  _T0CON
+  0000                00242         extern  _TMR0
+  0000                00243         extern  _TMR0L
+  0000                00244         extern  _TMR0H
+  0000                00245         extern  _STATUS
+  0000                00246         extern  _FSR2L
+  0000                00247         extern  _FSR2H
+  0000                00248         extern  _PLUSW2
+  0000                00249         extern  _PREINC2
+  0000                00250         extern  _POSTDEC2
+  0000                00251         extern  _POSTINC2
+  0000                00252         extern  _INDF2
+  0000                00253         extern  _BSR
+  0000                00254         extern  _FSR1L
+  0000                00255         extern  _FSR1H
+  0000                00256         extern  _PLUSW1
+  0000                00257         extern  _PREINC1
+  0000                00258         extern  _POSTDEC1
+  0000                00259         extern  _POSTINC1
+  0000                00260         extern  _INDF1
+  0000                00261         extern  _WREG
+  0000                00262         extern  _FSR0L
+  0000                00263         extern  _FSR0H
+  0000                00264         extern  _PLUSW0
+  0000                00265         extern  _PREINC0
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+  0000                00266         extern  _POSTDEC0
+  0000                00267         extern  _POSTINC0
+  0000                00268         extern  _INDF0
+  0000                00269         extern  _INTCON3
+  0000                00270         extern  _INTCON2
+  0000                00271         extern  _INTCON
+  0000                00272         extern  _PROD
+  0000                00273         extern  _PRODL
+  0000                00274         extern  _PRODH
+  0000                00275         extern  _TABLAT
+  0000                00276         extern  _TBLPTR
+  0000                00277         extern  _TBLPTRL
+  0000                00278         extern  _TBLPTRH
+  0000                00279         extern  _TBLPTRU
+  0000                00280         extern  _PC
+  0000                00281         extern  _PCL
+  0000                00282         extern  _PCLATH
+  0000                00283         extern  _PCLATU
+  0000                00284         extern  _STKPTR
+  0000                00285         extern  _TOS
+  0000                00286         extern  _TOSL
+  0000                00287         extern  _TOSH
+  0000                00288         extern  _TOSU
+  0000                00289         extern  _delay10tcy
+  0000                00290         extern  _delay100tcy
+  0000                00291         extern  _delay1ktcy
+                      00292 
+                      00293 ;--------------------------------------------------------
+                      00294 ;       Equates to used internal registers
+                      00295 ;--------------------------------------------------------
+  00000FD8            00296 STATUS  equ     0xfd8
+  00000FE8            00297 WREG    equ     0xfe8
+  00000FE9            00298 FSR0L   equ     0xfe9
+  00000FE1            00299 FSR1L   equ     0xfe1
+  00000FD9            00300 FSR2L   equ     0xfd9
+  00000FE6            00301 POSTINC1        equ     0xfe6
+  00000FE5            00302 POSTDEC1        equ     0xfe5
+  00000FE4            00303 PREINC1 equ     0xfe4
+  00000FDB            00304 PLUSW2  equ     0xfdb
+  00000FF3            00305 PRODL   equ     0xff3
+                      00306 
+                      00307 
+                      00308         idata
+000000 00             00309 __autoRedirect  db      0x00
+                      00310 
+                      00311 
+                      00312 ; Internal registers
+                      00313 .registers      udata_ovr       0x0000
+000000                00314 r0x00   res     1
+000001                00315 r0x01   res     1
+000002                00316 r0x02   res     1
+000003                00317 r0x03   res     1
+000004                00318 r0x04   res     1
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000005                00319 r0x05   res     1
+000006                00320 r0x06   res     1
+                      00321 
+                      00322 udata_lcd_0     udata
+000000                00323 __cristalMhz    res     2
+                      00324 
+                      00325 ;--------------------------------------------------------
+                      00326 ; global & static initialisations
+                      00327 ;--------------------------------------------------------
+                      00328 ; I code from now on!
+                      00329 ; ; Starting pCode block
+                      00330 S_lcd__lcd_busy code
+000000                00331 _lcd_busy:
+                      00332 ;       .line   252; lcd.c      unsigned char lcd_busy()
+000000 CFD9 FFE5      00333         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00334         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00335         MOVFF   r0x00, POSTDEC1
+                      00336 ;       .line   257; lcd.c      LCD_DATA_CNF = 0xFF;
+00000C 0EFF           00337         MOVLW   0xff
+00000E 6E??           00338         MOVWF   _TRISD
+                      00339 ;       .line   258; lcd.c      LCD_RW = 1;
+000010 82??           00340         BSF     _LATCbits, 1
+                      00341 ;       .line   259; lcd.c      LCD_RS = 0;
+000012 94??           00342         BCF     _LATCbits, 2
+                      00343 ;       .line   260; lcd.c      LCD_E = 1;
+000014 80??           00344         BSF     _LATCbits, 0
+000016 ????           00345         BANKSEL __cristalMhz
+                      00346 ;       .line   262; lcd.c      delay100tcy(_cristalMhz*8);
+000018 51??           00347         MOVF    __cristalMhz, W, B
+00001A 6E??           00348         MOVWF   r0x00
+                      00349 ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+00001C 50??           00350         MOVF    r0x00, W
+00001E 0D08           00351         MULLW   0x08
+000020 CFF3 F000      00352         MOVFF   PRODL, r0x00
+000024 50??           00353         MOVF    r0x00, W
+000026 EC?? F0??      00354         CALL    _delay100tcy
+                      00355 ;       .line   264; lcd.c      dataval = LCD_DATA;
+00002A C??? F???      00356         MOVFF   _LATD, r0x00
+                      00357 ;       .line   265; lcd.c      LCD_E = 0;
+00002E 90??           00358         BCF     _LATCbits, 0
+                      00359 ;       .line   267; lcd.c      LCD_DATA_CNF = 0x00;
+000030 6A??           00360         CLRF    _TRISD
+                      00361 ;       .line   269; lcd.c      if (dataval & 0x80)     return 1;
+000032 AE??           00362         BTFSS   r0x00, 7
+000034 D???           00363         BRA     _00217_DS_
+000036 0E01           00364         MOVLW   0x01
+000038 D???           00365         BRA     _00218_DS_
+00003A                00366 _00217_DS_:
+                      00367 ;       .line   270; lcd.c      return 0;
+00003A 6AE8           00368         CLRF    WREG
+00003C                00369 _00218_DS_:
+00003C CFE4 F000      00370         MOVFF   PREINC1, r0x00
+000040 CFE4 FFD9      00371         MOVFF   PREINC1, FSR2L
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000044 0012           00372         RETURN  
+                      00373 
+                      00374 ; ; Starting pCode block
+                      00375 S_lcd__lcd_send_data    code
+000000                00376 _lcd_send_data:
+                      00377 ;       .line   233; lcd.c      void lcd_send_data(unsigned char dataval)
+000000 CFD9 FFE5      00378         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00379         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00380         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00381         MOVFF   r0x01, POSTDEC1
+000010 0E02           00382         MOVLW   0x02
+000012 CFDB F000      00383         MOVFF   PLUSW2, r0x00
+000016                00384 _00208_DS_:
+                      00385 ;       .line   236; lcd.c      while (lcd_busy());
+000016 EC?? F0??      00386         CALL    _lcd_busy
+00001A 6E??           00387         MOVWF   r0x01
+00001C 50??           00388         MOVF    r0x01, W
+00001E E1??           00389         BNZ     _00208_DS_
+                      00390 ;       .line   238; lcd.c      LCD_RW = 0;
+000020 92??           00391         BCF     _LATCbits, 1
+                      00392 ;       .line   239; lcd.c      LCD_RS = 1;
+000022 84??           00393         BSF     _LATCbits, 2
+                      00394 ;       .line   240; lcd.c      LCD_DATA = dataval;
+000024 C??? F???      00395         MOVFF   r0x00, _LATD
+                      00396 ;       .line   241; lcd.c      LCD_E = 1;
+000028 80??           00397         BSF     _LATCbits, 0
+00002A ????           00398         BANKSEL __cristalMhz
+                      00399 ;       .line   242; lcd.c      delay100tcy(_cristalMhz*8);
+00002C 51??           00400         MOVF    __cristalMhz, W, B
+00002E 6E??           00401         MOVWF   r0x00
+                      00402 ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+000030 50??           00403         MOVF    r0x00, W
+000032 0D08           00404         MULLW   0x08
+000034 CFF3 F000      00405         MOVFF   PRODL, r0x00
+000038 50??           00406         MOVF    r0x00, W
+00003A EC?? F0??      00407         CALL    _delay100tcy
+                      00408 ;       .line   243; lcd.c      LCD_E = 0;
+00003E 90??           00409         BCF     _LATCbits, 0
+                      00410 ;       .line   244; lcd.c      LCD_DATA=0;
+000040 6A??           00411         CLRF    _LATD
+000042 CFE4 F000      00412         MOVFF   PREINC1, r0x01
+000046 CFE4 F000      00413         MOVFF   PREINC1, r0x00
+00004A CFE4 FFD9      00414         MOVFF   PREINC1, FSR2L
+00004E 0012           00415         RETURN  
+                      00416 
+                      00417 ; ; Starting pCode block
+                      00418 S_lcd__lcd_send_cmd     code
+000000                00419 _lcd_send_cmd:
+                      00420 ;       .line   212; lcd.c      void lcd_send_cmd(unsigned char cmd)
+000000 CFD9 FFE5      00421         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00422         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00423         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00424         MOVFF   r0x01, POSTDEC1
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000010 0E02           00425         MOVLW   0x02
+000012 CFDB F000      00426         MOVFF   PLUSW2, r0x00
+000016                00427 _00200_DS_:
+                      00428 ;       .line   214; lcd.c      while (lcd_busy());
+000016 EC?? F0??      00429         CALL    _lcd_busy
+00001A 6E??           00430         MOVWF   r0x01
+00001C 50??           00431         MOVF    r0x01, W
+00001E E1??           00432         BNZ     _00200_DS_
+                      00433 ;       .line   216; lcd.c      LCD_RS = 0;
+000020 94??           00434         BCF     _LATCbits, 2
+                      00435 ;       .line   217; lcd.c      LCD_RW = 0;
+000022 92??           00436         BCF     _LATCbits, 1
+                      00437 ;       .line   218; lcd.c      LCD_DATA_CNF = 0;
+000024 6A??           00438         CLRF    _TRISD
+                      00439 ;       .line   220; lcd.c      LCD_DATA=cmd;
+000026 C??? F???      00440         MOVFF   r0x00, _LATD
+                      00441 ;       .line   222; lcd.c      LCD_E=1;
+00002A 80??           00442         BSF     _LATCbits, 0
+00002C ????           00443         BANKSEL __cristalMhz
+                      00444 ;       .line   223; lcd.c      delay100tcy(_cristalMhz*8);
+00002E 51??           00445         MOVF    __cristalMhz, W, B
+000030 6E??           00446         MOVWF   r0x00
+                      00447 ; ;multiply lit val:0x08 by variable r0x00 and store in r0x00
+000032 50??           00448         MOVF    r0x00, W
+000034 0D08           00449         MULLW   0x08
+000036 CFF3 F000      00450         MOVFF   PRODL, r0x00
+00003A 50??           00451         MOVF    r0x00, W
+00003C EC?? F0??      00452         CALL    _delay100tcy
+                      00453 ;       .line   224; lcd.c      LCD_E=0;
+000040 90??           00454         BCF     _LATCbits, 0
+                      00455 ;       .line   225; lcd.c      LCD_DATA=0;
+000042 6A??           00456         CLRF    _LATD
+000044 CFE4 F000      00457         MOVFF   PREINC1, r0x01
+000048 CFE4 F000      00458         MOVFF   PREINC1, r0x00
+00004C CFE4 FFD9      00459         MOVFF   PREINC1, FSR2L
+000050 0012           00460         RETURN  
+                      00461 
+                      00462 ; ; Starting pCode block
+                      00463 S_lcd__lcd_fmode        code
+000000                00464 _lcd_fmode:
+                      00465 ;       .line   202; lcd.c      void lcd_fmode(unsigned char options)
+000000 CFD9 FFE5      00466         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00467         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00468         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00469         MOVLW   0x02
+00000E CFDB F000      00470         MOVFF   PLUSW2, r0x00
+                      00471 ;       .line   204; lcd.c      lcd_send_cmd((options & 0x1F) | 0x20);
+000012 0E1F           00472         MOVLW   0x1f
+000014 16??           00473         ANDWF   r0x00, F
+000016 8A??           00474         BSF     r0x00, 5
+000018 50??           00475         MOVF    r0x00, W
+00001A 6EE5           00476         MOVWF   POSTDEC1
+00001C EC?? F0??      00477         CALL    _lcd_send_cmd
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000020 52E6           00478         MOVF    POSTINC1, F
+000022 CFE4 F000      00479         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00480         MOVFF   PREINC1, FSR2L
+00002A 0012           00481         RETURN  
+                      00482 
+                      00483 ; ; Starting pCode block
+                      00484 S_lcd__lcd_cmode        code
+000000                00485 _lcd_cmode:
+                      00486 ;       .line   186; lcd.c      void lcd_cmode(unsigned char options)
+000000 CFD9 FFE5      00487         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00488         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00489         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00490         MOVLW   0x02
+00000E CFDB F000      00491         MOVFF   PLUSW2, r0x00
+                      00492 ;       .line   188; lcd.c      lcd_send_cmd((options & 0x03) | 0x04);
+000012 0E03           00493         MOVLW   0x03
+000014 16??           00494         ANDWF   r0x00, F
+000016 84??           00495         BSF     r0x00, 2
+000018 50??           00496         MOVF    r0x00, W
+00001A 6EE5           00497         MOVWF   POSTDEC1
+00001C EC?? F0??      00498         CALL    _lcd_send_cmd
+000020 52E6           00499         MOVF    POSTINC1, F
+000022 CFE4 F000      00500         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00501         MOVFF   PREINC1, FSR2L
+00002A 0012           00502         RETURN  
+                      00503 
+                      00504 ; ; Starting pCode block
+                      00505 S_lcd__lcd_dmode        code
+000000                00506 _lcd_dmode:
+                      00507 ;       .line   172; lcd.c      void lcd_dmode(unsigned char options)
+000000 CFD9 FFE5      00508         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00509         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00510         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00511         MOVLW   0x02
+00000E CFDB F000      00512         MOVFF   PLUSW2, r0x00
+                      00513 ;       .line   174; lcd.c      lcd_send_cmd((options & 0x07) | 0x08);
+000012 0E07           00514         MOVLW   0x07
+000014 16??           00515         ANDWF   r0x00, F
+000016 86??           00516         BSF     r0x00, 3
+000018 50??           00517         MOVF    r0x00, W
+00001A 6EE5           00518         MOVWF   POSTDEC1
+00001C EC?? F0??      00519         CALL    _lcd_send_cmd
+000020 52E6           00520         MOVF    POSTINC1, F
+000022 CFE4 F000      00521         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00522         MOVFF   PREINC1, FSR2L
+00002A 0012           00523         RETURN  
+                      00524 
+                      00525 ; ; Starting pCode block
+                      00526 S_lcd__lcd_emode        code
+000000                00527 _lcd_emode:
+                      00528 ;       .line   157; lcd.c      void lcd_emode(unsigned char options)
+000000 CFD9 FFE5      00529         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00530         MOVFF   FSR1L, FSR2L
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000008 C??? F???      00531         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00532         MOVLW   0x02
+00000E CFDB F000      00533         MOVFF   PLUSW2, r0x00
+                      00534 ;       .line   159; lcd.c      lcd_send_cmd((options & 0x03) | 0x04);
+000012 0E03           00535         MOVLW   0x03
+000014 16??           00536         ANDWF   r0x00, F
+000016 84??           00537         BSF     r0x00, 2
+000018 50??           00538         MOVF    r0x00, W
+00001A 6EE5           00539         MOVWF   POSTDEC1
+00001C EC?? F0??      00540         CALL    _lcd_send_cmd
+000020 52E6           00541         MOVF    POSTINC1, F
+000022 CFE4 F000      00542         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00543         MOVFF   PREINC1, FSR2L
+00002A 0012           00544         RETURN  
+                      00545 
+                      00546 ; ; Starting pCode block
+                      00547 S_lcd__lcd_ddram        code
+000000                00548 _lcd_ddram:
+                      00549 ;       .line   143; lcd.c      void lcd_ddram(unsigned char address)
+000000 CFD9 FFE5      00550         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00551         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00552         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00553         MOVLW   0x02
+00000E CFDB F000      00554         MOVFF   PLUSW2, r0x00
+                      00555 ;       .line   145; lcd.c      lcd_send_cmd((address & 0x7F) | 0x80);
+000012 9E??           00556         BCF     r0x00, 7
+000014 8E??           00557         BSF     r0x00, 7
+000016 50??           00558         MOVF    r0x00, W
+000018 6EE5           00559         MOVWF   POSTDEC1
+00001A EC?? F0??      00560         CALL    _lcd_send_cmd
+00001E 52E6           00561         MOVF    POSTINC1, F
+000020 CFE4 F000      00562         MOVFF   PREINC1, r0x00
+000024 CFE4 FFD9      00563         MOVFF   PREINC1, FSR2L
+000028 0012           00564         RETURN  
+                      00565 
+                      00566 ; ; Starting pCode block
+                      00567 S_lcd__lcd_home code
+000000                00568 _lcd_home:
+                      00569 ;       .line   133; lcd.c      void lcd_home()
+000000 CFD9 FFE5      00570         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00571         MOVFF   FSR1L, FSR2L
+                      00572 ;       .line   135; lcd.c      lcd_send_cmd(0x02);
+000008 0E02           00573         MOVLW   0x02
+00000A 6EE5           00574         MOVWF   POSTDEC1
+00000C EC?? F0??      00575         CALL    _lcd_send_cmd
+000010 52E6           00576         MOVF    POSTINC1, F
+000012 CFE4 FFD9      00577         MOVFF   PREINC1, FSR2L
+000016 0012           00578         RETURN  
+                      00579 
+                      00580 ; ; Starting pCode block
+                      00581 S_lcd__lcd_clear        code
+000000                00582 _lcd_clear:
+                      00583 ;       .line   124; lcd.c      void lcd_clear()
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000000 CFD9 FFE5      00584         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00585         MOVFF   FSR1L, FSR2L
+                      00586 ;       .line   126; lcd.c      lcd_send_cmd(0x01);
+000008 0E01           00587         MOVLW   0x01
+00000A 6EE5           00588         MOVWF   POSTDEC1
+00000C EC?? F0??      00589         CALL    _lcd_send_cmd
+000010 52E6           00590         MOVF    POSTINC1, F
+000012 CFE4 FFD9      00591         MOVFF   PREINC1, FSR2L
+000016 0012           00592         RETURN  
+                      00593 
+                      00594 ; ; Starting pCode block
+                      00595 S_lcd__lcd_setLine      code
+000000                00596 _lcd_setLine:
+                      00597 ;       .line   111; lcd.c      void lcd_setLine(unsigned char nb)
+000000 CFD9 FFE5      00598         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00599         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00600         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00601         MOVFF   r0x01, POSTDEC1
+000010 0E02           00602         MOVLW   0x02
+000012 CFDB F000      00603         MOVFF   PLUSW2, r0x00
+                      00604 ; ;multiply lit val:0x40 by variable r0x00 and store in r0x00
+                      00605 ;       .line   114; lcd.c      lcd_ddram(SECOND_LINE*nb);
+000016 50??           00606         MOVF    r0x00, W
+000018 0D40           00607         MULLW   0x40
+00001A CFF3 F000      00608         MOVFF   PRODL, r0x00
+00001E 50??           00609         MOVF    r0x00, W
+000020 6EE5           00610         MOVWF   POSTDEC1
+000022 EC?? F0??      00611         CALL    _lcd_ddram
+000026 52E6           00612         MOVF    POSTINC1, F
+                      00613 ;       .line   115; lcd.c      for(i=0;i<16;i++) {
+000028 6A??           00614         CLRF    r0x01
+00002A                00615 _00149_DS_:
+                      00616 ;       .line   116; lcd.c      lcd_send_data(' ');
+00002A 0E20           00617         MOVLW   0x20
+00002C 6EE5           00618         MOVWF   POSTDEC1
+00002E EC?? F0??      00619         CALL    _lcd_send_data
+000032 52E6           00620         MOVF    POSTINC1, F
+                      00621 ;       .line   115; lcd.c      for(i=0;i<16;i++) {
+000034 2A??           00622         INCF    r0x01, F
+000036 0E10           00623         MOVLW   0x10
+000038 5C??           00624         SUBWF   r0x01, W
+00003A E3??           00625         BNC     _00149_DS_
+                      00626 ;       .line   118; lcd.c      lcd_ddram(SECOND_LINE*nb);
+00003C 50??           00627         MOVF    r0x00, W
+00003E 6EE5           00628         MOVWF   POSTDEC1
+000040 EC?? F0??      00629         CALL    _lcd_ddram
+000044 52E6           00630         MOVF    POSTINC1, F
+000046 CFE4 F000      00631         MOVFF   PREINC1, r0x01
+00004A CFE4 F000      00632         MOVFF   PREINC1, r0x00
+00004E CFE4 FFD9      00633         MOVFF   PREINC1, FSR2L
+000052 0012           00634         RETURN  
+                      00635 
+                      00636 ; ; Starting pCode block
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00637 S_lcd__lcd_pushLetter   code
+000000                00638 _lcd_pushLetter:
+                      00639 ;       .line   101; lcd.c      void lcd_pushLetter(unsigned char l)
+000000 CFD9 FFE5      00640         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00641         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00642         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00643         MOVLW   0x02
+00000E CFDB F000      00644         MOVFF   PLUSW2, r0x00
+                      00645 ;       .line   103; lcd.c      lcd_send_data(l);
+000012 50??           00646         MOVF    r0x00, W
+000014 6EE5           00647         MOVWF   POSTDEC1
+000016 EC?? F0??      00648         CALL    _lcd_send_data
+00001A 52E6           00649         MOVF    POSTINC1, F
+00001C CFE4 F000      00650         MOVFF   PREINC1, r0x00
+000020 CFE4 FFD9      00651         MOVFF   PREINC1, FSR2L
+000024 0012           00652         RETURN  
+                      00653 
+                      00654 ; ; Starting pCode block
+                      00655 S_lcd__putchar  code
+000000                00656 _putchar:
+                      00657 ;       .line   91; lcd.c       void putchar(char c) __wparam
+000000 CFD9 FFE5      00658         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00659         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00660         MOVFF   r0x00, POSTDEC1
+00000C 6E??           00661         MOVWF   r0x00
+00000E ????           00662         BANKSEL __autoRedirect
+                      00663 ;       .line   93; lcd.c       if (_autoRedirect) lcd_send_data(c);
+000010 51??           00664         MOVF    __autoRedirect, W, B
+000012 E0??           00665         BZ      _00138_DS_
+000014 50??           00666         MOVF    r0x00, W
+000016 6EE5           00667         MOVWF   POSTDEC1
+000018 EC?? F0??      00668         CALL    _lcd_send_data
+00001C 52E6           00669         MOVF    POSTINC1, F
+00001E                00670 _00138_DS_:
+00001E CFE4 F000      00671         MOVFF   PREINC1, r0x00
+000022 CFE4 FFD9      00672         MOVFF   PREINC1, FSR2L
+000026 0012           00673         RETURN  
+                      00674 
+                      00675 ; ; Starting pCode block
+                      00676 S_lcd__lcd_print        code
+000000                00677 _lcd_print:
+                      00678 ;       .line   78; lcd.c       void lcd_print(char* st)
+000000 CFD9 FFE5      00679         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00680         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00681         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00682         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      00683         MOVFF   r0x02, POSTDEC1
+000014 C??? F???      00684         MOVFF   r0x03, POSTDEC1
+000018 C??? F???      00685         MOVFF   r0x04, POSTDEC1
+00001C C??? F???      00686         MOVFF   r0x05, POSTDEC1
+000020 C??? F???      00687         MOVFF   r0x06, POSTDEC1
+000024 0E02           00688         MOVLW   0x02
+000026 CFDB F000      00689         MOVFF   PLUSW2, r0x00
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00002A 0E03           00690         MOVLW   0x03
+00002C CFDB F000      00691         MOVFF   PLUSW2, r0x01
+000030 0E04           00692         MOVLW   0x04
+000032 CFDB F000      00693         MOVFF   PLUSW2, r0x02
+                      00694 ;       .line   81; lcd.c       for(i=0;(st[i]!=0) && (i<16);i++) {
+000036 6A??           00695         CLRF    r0x03
+000038                00696 _00115_DS_:
+000038 50??           00697         MOVF    r0x03, W
+00003A 24??           00698         ADDWF   r0x00, W
+00003C 6E??           00699         MOVWF   r0x04
+00003E 6AE8           00700         CLRF    WREG
+000040 20??           00701         ADDWFC  r0x01, W
+000042 6E??           00702         MOVWF   r0x05
+000044 6AE8           00703         CLRF    WREG
+000046 20??           00704         ADDWFC  r0x02, W
+000048 6E??           00705         MOVWF   r0x06
+00004A C??? F???      00706         MOVFF   r0x04, FSR0L
+00004E C??? F???      00707         MOVFF   r0x05, PRODL
+000052 50??           00708         MOVF    r0x06, W
+000054 EC?? F0??      00709         CALL    __gptrget1
+000058 6E??           00710         MOVWF   r0x04
+00005A 50??           00711         MOVF    r0x04, W
+00005C E0??           00712         BZ      _00117_DS_
+00005E 0E10           00713         MOVLW   0x10
+000060 5C??           00714         SUBWF   r0x03, W
+000062 E2??           00715         BC      _00117_DS_
+                      00716 ;       .line   82; lcd.c       lcd_send_data((unsigned char)st[i]);
+000064 50??           00717         MOVF    r0x04, W
+000066 6EE5           00718         MOVWF   POSTDEC1
+000068 EC?? F0??      00719         CALL    _lcd_send_data
+00006C 52E6           00720         MOVF    POSTINC1, F
+                      00721 ;       .line   81; lcd.c       for(i=0;(st[i]!=0) && (i<16);i++) {
+00006E 2A??           00722         INCF    r0x03, F
+000070 D???           00723         BRA     _00115_DS_
+000072                00724 _00117_DS_:
+000072 CFE4 F000      00725         MOVFF   PREINC1, r0x06
+000076 CFE4 F000      00726         MOVFF   PREINC1, r0x05
+00007A CFE4 F000      00727         MOVFF   PREINC1, r0x04
+00007E CFE4 F000      00728         MOVFF   PREINC1, r0x03
+000082 CFE4 F000      00729         MOVFF   PREINC1, r0x02
+000086 CFE4 F000      00730         MOVFF   PREINC1, r0x01
+00008A CFE4 F000      00731         MOVFF   PREINC1, r0x00
+00008E CFE4 FFD9      00732         MOVFF   PREINC1, FSR2L
+000092 0012           00733         RETURN  
+                      00734 
+                      00735 ; ; Starting pCode block
+                      00736 S_lcd__lcd_init code
+000000                00737 _lcd_init:
+                      00738 ;       .line   15; lcd.c       void lcd_init(unsigned int cristalMhz, unsigned char autoRedirect)
+000000 CFD9 FFE5      00739         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00740         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00741         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00742         MOVFF   r0x01, POSTDEC1
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000010 C??? F???      00743         MOVFF   r0x02, POSTDEC1
+000014 0E02           00744         MOVLW   0x02
+000016 CFDB F000      00745         MOVFF   PLUSW2, r0x00
+00001A 0E03           00746         MOVLW   0x03
+00001C CFDB F000      00747         MOVFF   PLUSW2, r0x01
+000020 0E04           00748         MOVLW   0x04
+000022 CFDB F000      00749         MOVFF   PLUSW2, r0x02
+                      00750 ;       .line   17; lcd.c       _cristalMhz = cristalMhz;
+000026 C??? F???      00751         MOVFF   r0x00, __cristalMhz
+00002A C??? F???      00752         MOVFF   r0x01, (__cristalMhz + 1)
+                      00753 ;       .line   18; lcd.c       _autoRedirect = autoRedirect;
+00002E C??? F???      00754         MOVFF   r0x02, __autoRedirect
+                      00755 ;       .line   20; lcd.c       if (autoRedirect) {
+000032 50??           00756         MOVF    r0x02, W
+000034 E0??           00757         BZ      _00106_DS_
+000036 ????           00758         BANKSEL _stdout
+                      00759 ;       .line   21; lcd.c       stdout = STREAM_USER;
+000038 6B??           00760         CLRF    _stdout, B
+00003A ????           00761         BANKSEL (_stdout + 1)
+00003C 6B??           00762         CLRF    (_stdout + 1), B
+00003E 0E2F           00763         MOVLW   0x2f
+000040 ????           00764         BANKSEL (_stdout + 2)
+000042 6F??           00765         MOVWF   (_stdout + 2), B
+000044                00766 _00106_DS_:
+                      00767 ;       .line   24; lcd.c       LCD_DATA_CNF = 0;
+000044 6A??           00768         CLRF    _TRISD
+                      00769 ;       .line   25; lcd.c       LCD_RS_CNF = 0;
+000046 94??           00770         BCF     _TRISCbits, 2
+                      00771 ;       .line   26; lcd.c       LCD_RW_CNF = 0;
+000048 92??           00772         BCF     _TRISCbits, 1
+                      00773 ;       .line   27; lcd.c       LCD_E_CNF = 0;
+00004A 90??           00774         BCF     _TRISCbits, 0
+                      00775 ;       .line   28; lcd.c       LCD_E=0;
+00004C 90??           00776         BCF     _LATCbits, 0
+                      00777 ; ;multiply lit val:0x04 by variable r0x00 and store in r0x01
+                      00778 ;       .line   31; lcd.c       delay1ktcy(cristalMhz*4); /* Wait for 16ms after poweron (here 16ms) */
+00004E 50??           00779         MOVF    r0x00, W
+000050 0D04           00780         MULLW   0x04
+000052 CFF3 F000      00781         MOVFF   PRODL, r0x01
+000056 50??           00782         MOVF    r0x01, W
+000058 EC?? F0??      00783         CALL    _delay1ktcy
+                      00784 ;       .line   33; lcd.c       LCD_DATA = 0x30;
+00005C 0E30           00785         MOVLW   0x30
+00005E 6E??           00786         MOVWF   _LATD
+                      00787 ;       .line   34; lcd.c       LCD_RS = 0;
+000060 94??           00788         BCF     _LATCbits, 2
+                      00789 ;       .line   35; lcd.c       LCD_RW = 0;
+000062 92??           00790         BCF     _LATCbits, 1
+                      00791 ;       .line   38; lcd.c       LCD_E=1;
+000064 80??           00792         BSF     _LATCbits, 0
+                      00793 ;       .line   39; lcd.c       delay1ktcy(cristalMhz); /* Wait for 4.1ms */
+000066 50??           00794         MOVF    r0x00, W
+000068 EC?? F0??      00795         CALL    _delay1ktcy
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00796 ; ;multiply lit val:0x03 by variable r0x00 and store in r0x01
+                      00797 ;       .line   40; lcd.c       delay10tcy(3*cristalMhz);
+00006C 50??           00798         MOVF    r0x00, W
+00006E 0D03           00799         MULLW   0x03
+000070 CFF3 F000      00800         MOVFF   PRODL, r0x01
+000074 50??           00801         MOVF    r0x01, W
+000076 EC?? F0??      00802         CALL    _delay10tcy
+                      00803 ;       .line   43; lcd.c       LCD_E=0;
+00007A 90??           00804         BCF     _LATCbits, 0
+                      00805 ; ;multiply lit val:0x08 by variable r0x00 and store in r0x01
+                      00806 ;       .line   44; lcd.c       delay100tcy(cristalMhz*8);
+00007C 50??           00807         MOVF    r0x00, W
+00007E 0D08           00808         MULLW   0x08
+000080 CFF3 F000      00809         MOVFF   PRODL, r0x01
+000084 50??           00810         MOVF    r0x01, W
+000086 EC?? F0??      00811         CALL    _delay100tcy
+                      00812 ;       .line   45; lcd.c       LCD_E=1;
+00008A 80??           00813         BSF     _LATCbits, 0
+                      00814 ;       .line   46; lcd.c       delay10tcy(3+cristalMhz); /* Wait for 100µs */
+00008C 0E03           00815         MOVLW   0x03
+00008E 24??           00816         ADDWF   r0x00, W
+000090 6E??           00817         MOVWF   r0x02
+000092 50??           00818         MOVF    r0x02, W
+000094 EC?? F0??      00819         CALL    _delay10tcy
+                      00820 ;       .line   47; lcd.c       LCD_E=0;
+000098 90??           00821         BCF     _LATCbits, 0
+                      00822 ;       .line   48; lcd.c       delay100tcy(cristalMhz*8);
+00009A 50??           00823         MOVF    r0x01, W
+00009C EC?? F0??      00824         CALL    _delay100tcy
+                      00825 ;       .line   49; lcd.c       LCD_E=1;
+0000A0 80??           00826         BSF     _LATCbits, 0
+                      00827 ; ;multiply lit val:0x02 by variable r0x00 and store in r0x00
+                      00828 ;       .line   50; lcd.c       delay10tcy(2*cristalMhz); /* Wait for 42µs */
+0000A2 50??           00829         MOVF    r0x00, W
+0000A4 0D02           00830         MULLW   0x02
+0000A6 CFF3 F000      00831         MOVFF   PRODL, r0x00
+0000AA 50??           00832         MOVF    r0x00, W
+0000AC EC?? F0??      00833         CALL    _delay10tcy
+                      00834 ;       .line   51; lcd.c       LCD_E=0;
+0000B0 90??           00835         BCF     _LATCbits, 0
+                      00836 ;       .line   52; lcd.c       delay100tcy(cristalMhz*8);
+0000B2 50??           00837         MOVF    r0x01, W
+0000B4 EC?? F0??      00838         CALL    _delay100tcy
+                      00839 ;       .line   57; lcd.c       lcd_send_cmd(0x08);
+0000B8 0E08           00840         MOVLW   0x08
+0000BA 6EE5           00841         MOVWF   POSTDEC1
+0000BC EC?? F0??      00842         CALL    _lcd_send_cmd
+0000C0 52E6           00843         MOVF    POSTINC1, F
+                      00844 ;       .line   60; lcd.c       lcd_clear();
+0000C2 EC?? F0??      00845         CALL    _lcd_clear
+                      00846 ;       .line   63; lcd.c       lcd_emode(INC_CURSOR);
+0000C6 0E02           00847         MOVLW   0x02
+0000C8 6EE5           00848         MOVWF   POSTDEC1
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0000CA EC?? F0??      00849         CALL    _lcd_emode
+0000CE 52E6           00850         MOVF    POSTINC1, F
+                      00851 ;       .line   66; lcd.c       lcd_fmode(IFACE_8BIT | DUAL_LINE);
+0000D0 0E18           00852         MOVLW   0x18
+0000D2 6EE5           00853         MOVWF   POSTDEC1
+0000D4 EC?? F0??      00854         CALL    _lcd_fmode
+0000D8 52E6           00855         MOVF    POSTINC1, F
+                      00856 ;       .line   69; lcd.c       lcd_dmode(DISPLAY_ON | CURSOR_ON | BLINK_ON);
+0000DA 0E07           00857         MOVLW   0x07
+0000DC 6EE5           00858         MOVWF   POSTDEC1
+0000DE EC?? F0??      00859         CALL    _lcd_dmode
+0000E2 52E6           00860         MOVF    POSTINC1, F
+0000E4 CFE4 F000      00861         MOVFF   PREINC1, r0x02
+0000E8 CFE4 F000      00862         MOVFF   PREINC1, r0x01
+0000EC CFE4 F000      00863         MOVFF   PREINC1, r0x00
+0000F0 CFE4 FFD9      00864         MOVFF   PREINC1, FSR2L
+0000F4 0012           00865         RETURN  
+                      00866 
+                      00867 
+                      00868 
+                      00869 ; Statistics:
+                      00870 ; code size:     1054 (0x041e) bytes ( 0.80%)
+                      00871 ;                 527 (0x020f) words
+                      00872 ; udata size:       2 (0x0002) bytes ( 0.11%)
+                      00873 ; access size:      7 (0x0007) bytes
+                      00874 
+                      00875 
+                      00876         end
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE
+
+FSR0L                             00000FE9
+FSR1L                             00000FE1
+FSR2L                             00000FD9
+PLUSW2                            00000FDB
+POSTDEC1                          00000FE5
+POSTINC1                          00000FE6
+PREINC1                           00000FE4
+PRODL                             00000FF3
+STATUS                            00000FD8
+WREG                              00000FE8
+_00106_DS_                        00000044
+_00115_DS_                        00000038
+_00117_DS_                        00000072
+_00138_DS_                        0000001E
+_00149_DS_                        0000002A
+_00200_DS_                        00000016
+_00208_DS_                        00000016
+_00217_DS_                        0000003A
+_00218_DS_                        0000003C
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADCON2                           00000000
+_ADCON2bits                       00000000
+_ADRES                            00000000
+_ADRESH                           00000000
+_ADRESL                           00000000
+_BAUDCON                          00000000
+_BAUDCONbits                      00000000
+_BAUDCTL                          00000000
+_BAUDCTLbits                      00000000
+_BSR                              00000000
+_CCP1AS                           00000000
+_CCP1ASbits                       00000000
+_CCP1CON                          00000000
+_CCP1CONbits                      00000000
+_CCP1DEL                          00000000
+_CCP1DELbits                      00000000
+_CCP2CON                          00000000
+_CCP2CONbits                      00000000
+_CCPR1                            00000000
+_CCPR1H                           00000000
+_CCPR1L                           00000000
+_CCPR2                            00000000
+_CCPR2H                           00000000
+_CCPR2L                           00000000
+_CMCON                            00000000
+_CMCONbits                        00000000
+_CVRCON                           00000000
+_CVRCONbits                       00000000
+_DDRA                             00000000
+_DDRAbits                         00000000
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_DDRB                             00000000
+_DDRBbits                         00000000
+_DDRC                             00000000
+_DDRCbits                         00000000
+_DDRD                             00000000
+_DDRDbits                         00000000
+_DDRE                             00000000
+_DDREbits                         00000000
+_ECCP1AS                          00000000
+_ECCP1ASbits                      00000000
+_ECCP1CON                         00000000
+_ECCP1CONbits                     00000000
+_ECCP1DEL                         00000000
+_ECCP1DELbits                     00000000
+_EEADR                            00000000
+_EECON1                           00000000
+_EECON1bits                       00000000
+_EECON2                           00000000
+_EEDATA                           00000000
+_FSR0H                            00000000
+_FSR0L                            00000000
+_FSR1H                            00000000
+_FSR1L                            00000000
+_FSR2H                            00000000
+_FSR2L                            00000000
+_HLVDCON                          00000000
+_HLVDCONbits                      00000000
+_INDF0                            00000000
+_INDF1                            00000000
+_INDF2                            00000000
+_INTCON                           00000000
+_INTCON2                          00000000
+_INTCON2bits                      00000000
+_INTCON3                          00000000
+_INTCON3bits                      00000000
+_INTCONbits                       00000000
+_IPR1                             00000000
+_IPR1bits                         00000000
+_IPR2                             00000000
+_IPR2bits                         00000000
+_LATA                             00000000
+_LATAbits                         00000000
+_LATB                             00000000
+_LATBbits                         00000000
+_LATC                             00000000
+_LATCbits                         00000000
+_LATD                             00000000
+_LATDbits                         00000000
+_LATE                             00000000
+_LATEbits                         00000000
+_LVDCON                           00000000
+_LVDCONbits                       00000000
+_OSCCON                           00000000
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_OSCCONbits                       00000000
+_OSCTUNE                          00000000
+_OSCTUNEbits                      00000000
+_PC                               00000000
+_PCL                              00000000
+_PCLATH                           00000000
+_PCLATU                           00000000
+_PIE1                             00000000
+_PIE1bits                         00000000
+_PIE2                             00000000
+_PIE2bits                         00000000
+_PIR1                             00000000
+_PIR1bits                         00000000
+_PIR2                             00000000
+_PIR2bits                         00000000
+_PLUSW0                           00000000
+_PLUSW1                           00000000
+_PLUSW2                           00000000
+_PORTA                            00000000
+_PORTAbits                        00000000
+_PORTB                            00000000
+_PORTBbits                        00000000
+_PORTC                            00000000
+_PORTCbits                        00000000
+_PORTD                            00000000
+_PORTDbits                        00000000
+_PORTE                            00000000
+_PORTEbits                        00000000
+_POSTDEC0                         00000000
+_POSTDEC1                         00000000
+_POSTDEC2                         00000000
+_POSTINC0                         00000000
+_POSTINC1                         00000000
+_POSTINC2                         00000000
+_PR2                              00000000
+_PREINC0                          00000000
+_PREINC1                          00000000
+_PREINC2                          00000000
+_PROD                             00000000
+_PRODH                            00000000
+_PRODL                            00000000
+_RCON                             00000000
+_RCONbits                         00000000
+_RCREG                            00000000
+_RCSTA                            00000000
+_RCSTAbits                        00000000
+_SPBRG                            00000000
+_SPBRGH                           00000000
+_SPPCFG                           00000000
+_SPPCFGbits                       00000000
+_SPPCON                           00000000
+_SPPCONbits                       00000000
+_SPPDATA                          00000000
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_SPPEPS                           00000000
+_SPPEPSbits                       00000000
+_SSPADD                           00000000
+_SSPBUF                           00000000
+_SSPCON1                          00000000
+_SSPCON1bits                      00000000
+_SSPCON2                          00000000
+_SSPCON2bits                      00000000
+_SSPSTAT                          00000000
+_SSPSTATbits                      00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_STKPTR                           00000000
+_STKPTRbits                       00000000
+_T0CON                            00000000
+_T0CONbits                        00000000
+_T1CON                            00000000
+_T1CONbits                        00000000
+_T2CON                            00000000
+_T2CONbits                        00000000
+_T3CON                            00000000
+_T3CONbits                        00000000
+_TABLAT                           00000000
+_TBLPTR                           00000000
+_TBLPTRH                          00000000
+_TBLPTRL                          00000000
+_TBLPTRU                          00000000
+_TMR0                             00000000
+_TMR0H                            00000000
+_TMR0L                            00000000
+_TMR1                             00000000
+_TMR1H                            00000000
+_TMR1L                            00000000
+_TMR2                             00000000
+_TMR3                             00000000
+_TMR3H                            00000000
+_TMR3L                            00000000
+_TOS                              00000000
+_TOSH                             00000000
+_TOSL                             00000000
+_TOSU                             00000000
+_TRISA                            00000000
+_TRISAbits                        00000000
+_TRISB                            00000000
+_TRISBbits                        00000000
+_TRISC                            00000000
+_TRISCbits                        00000000
+_TRISD                            00000000
+_TRISDbits                        00000000
+_TRISE                            00000000
+_TRISEbits                        00000000
+_TXREG                            00000000
+_TXSTA                            00000000
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_TXSTAbits                        00000000
+_UADDR                            00000000
+_UADDRbits                        00000000
+_UCFG                             00000000
+_UCFGbits                         00000000
+_UCON                             00000000
+_UCONbits                         00000000
+_UEIE                             00000000
+_UEIEbits                         00000000
+_UEIR                             00000000
+_UEIRbits                         00000000
+_UEP0                             00000000
+_UEP0bits                         00000000
+_UEP1                             00000000
+_UEP10                            00000000
+_UEP10bits                        00000000
+_UEP11                            00000000
+_UEP11bits                        00000000
+_UEP12                            00000000
+_UEP12bits                        00000000
+_UEP13                            00000000
+_UEP13bits                        00000000
+_UEP14                            00000000
+_UEP14bits                        00000000
+_UEP15                            00000000
+_UEP15bits                        00000000
+_UEP1bits                         00000000
+_UEP2                             00000000
+_UEP2bits                         00000000
+_UEP3                             00000000
+_UEP3bits                         00000000
+_UEP4                             00000000
+_UEP4bits                         00000000
+_UEP5                             00000000
+_UEP5bits                         00000000
+_UEP6                             00000000
+_UEP6bits                         00000000
+_UEP7                             00000000
+_UEP7bits                         00000000
+_UEP8                             00000000
+_UEP8bits                         00000000
+_UEP9                             00000000
+_UEP9bits                         00000000
+_UFRM                             00000000
+_UFRMH                            00000000
+_UFRMHbits                        00000000
+_UFRML                            00000000
+_UFRMLbits                        00000000
+_UIE                              00000000
+_UIEbits                          00000000
+_UIR                              00000000
+_UIRbits                          00000000
+_USTAT                            00000000
+gpasm-1.3.0 #1017 (Sep 21 2014) obj/Release/l   9-21-2014  19:43:33         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_USTATbits                        00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+_WREG                             00000000
+__18F4550                         00000001
+__autoRedirect                    00000000
+__cristalMhz                      00000000
+__gptrget1                        00000000
+_delay100tcy                      00000000
+_delay10tcy                       00000000
+_delay1ktcy                       00000000
+_lcd_busy                         00000000
+_lcd_clear                        00000000
+_lcd_cmode                        00000000
+_lcd_ddram                        00000000
+_lcd_dmode                        00000000
+_lcd_emode                        00000000
+_lcd_fmode                        00000000
+_lcd_home                         00000000
+_lcd_init                         00000000
+_lcd_print                        00000000
+_lcd_pushLetter                   00000000
+_lcd_send_cmd                     00000000
+_lcd_send_data                    00000000
+_lcd_setLine                      00000000
+_putchar                          00000000
+_stdin                            00000000
+_stdout                           00000000
+r0x00                             00000000
+r0x01                             00000001
+r0x02                             00000002
+r0x03                             00000003
+r0x04                             00000004
+r0x05                             00000005
+r0x06                             00000006
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

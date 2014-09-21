@@ -1,0 +1,649 @@
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SDCC : free open source ANSI-C Compiler
+               00003 ; Version 3.2.0 #8008 (Jul  6 2012) (Linux)
+               00004 ; This file was generated Tue Feb 12 19:52:06 2013
+               00005 ;--------------------------------------------------------
+               00006 ; PIC16 port for the Microchip 16-bit core micros
+               00007 ;--------------------------------------------------------
+               00008         list    p=18f4550
+               00009 
+               00010         radix dec
+               00011 
+               00012 ;--------------------------------------------------------
+               00013 ; public variables in this module
+               00014 ;--------------------------------------------------------
+               00015         global  _main
+               00016 
+               00017 ;--------------------------------------------------------
+               00018 ; extern variables in this module
+               00019 ;--------------------------------------------------------
+               00020         extern  _SPPDATAbits
+               00021         extern  _SPPCFGbits
+               00022         extern  _SPPEPSbits
+               00023         extern  _SPPCONbits
+               00024         extern  _UFRMLbits
+               00025         extern  _UFRMHbits
+               00026         extern  _UIRbits
+               00027         extern  _UIEbits
+               00028         extern  _UEIRbits
+               00029         extern  _UEIEbits
+               00030         extern  _USTATbits
+               00031         extern  _UCONbits
+               00032         extern  _UADDRbits
+               00033         extern  _UCFGbits
+               00034         extern  _UEP0bits
+               00035         extern  _UEP1bits
+               00036         extern  _UEP2bits
+               00037         extern  _UEP3bits
+               00038         extern  _UEP4bits
+               00039         extern  _UEP5bits
+               00040         extern  _UEP6bits
+               00041         extern  _UEP7bits
+               00042         extern  _UEP8bits
+               00043         extern  _UEP9bits
+               00044         extern  _UEP10bits
+               00045         extern  _UEP11bits
+               00046         extern  _UEP12bits
+               00047         extern  _UEP13bits
+               00048         extern  _UEP14bits
+               00049         extern  _UEP15bits
+               00050         extern  _PORTAbits
+               00051         extern  _PORTBbits
+               00052         extern  _PORTCbits
+               00053         extern  _PORTDbits
+               00054         extern  _PORTEbits
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00055         extern  _LATAbits
+               00056         extern  _LATBbits
+               00057         extern  _LATCbits
+               00058         extern  _LATDbits
+               00059         extern  _LATEbits
+               00060         extern  _TRISAbits
+               00061         extern  _TRISBbits
+               00062         extern  _TRISCbits
+               00063         extern  _TRISDbits
+               00064         extern  _TRISEbits
+               00065         extern  _OSCTUNEbits
+               00066         extern  _PIE1bits
+               00067         extern  _PIR1bits
+               00068         extern  _IPR1bits
+               00069         extern  _PIE2bits
+               00070         extern  _PIR2bits
+               00071         extern  _IPR2bits
+               00072         extern  _EECON1bits
+               00073         extern  _RCSTAbits
+               00074         extern  _TXSTAbits
+               00075         extern  _T3CONbits
+               00076         extern  _CMCONbits
+               00077         extern  _CVRCONbits
+               00078         extern  _ECCP1ASbits
+               00079         extern  _ECCP1DELbits
+               00080         extern  _BAUDCONbits
+               00081         extern  _CCP2CONbits
+               00082         extern  _CCP1CONbits
+               00083         extern  _ADCON2bits
+               00084         extern  _ADCON1bits
+               00085         extern  _ADCON0bits
+               00086         extern  _SSPCON2bits
+               00087         extern  _SSPCON1bits
+               00088         extern  _SSPSTATbits
+               00089         extern  _T2CONbits
+               00090         extern  _T1CONbits
+               00091         extern  _RCONbits
+               00092         extern  _WDTCONbits
+               00093         extern  _HLVDCONbits
+               00094         extern  _OSCCONbits
+               00095         extern  _T0CONbits
+               00096         extern  _STATUSbits
+               00097         extern  _FSR2Hbits
+               00098         extern  _BSRbits
+               00099         extern  _FSR1Hbits
+               00100         extern  _FSR0Hbits
+               00101         extern  _INTCON3bits
+               00102         extern  _INTCON2bits
+               00103         extern  _INTCONbits
+               00104         extern  _TBLPTRUbits
+               00105         extern  _PCLATHbits
+               00106         extern  _PCLATUbits
+               00107         extern  _STKPTRbits
+               00108         extern  _TOSUbits
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00109         extern  _SPPDATA
+               00110         extern  _SPPCFG
+               00111         extern  _SPPEPS
+               00112         extern  _SPPCON
+               00113         extern  _UFRML
+               00114         extern  _UFRMH
+               00115         extern  _UIR
+               00116         extern  _UIE
+               00117         extern  _UEIR
+               00118         extern  _UEIE
+               00119         extern  _USTAT
+               00120         extern  _UCON
+               00121         extern  _UADDR
+               00122         extern  _UCFG
+               00123         extern  _UEP0
+               00124         extern  _UEP1
+               00125         extern  _UEP2
+               00126         extern  _UEP3
+               00127         extern  _UEP4
+               00128         extern  _UEP5
+               00129         extern  _UEP6
+               00130         extern  _UEP7
+               00131         extern  _UEP8
+               00132         extern  _UEP9
+               00133         extern  _UEP10
+               00134         extern  _UEP11
+               00135         extern  _UEP12
+               00136         extern  _UEP13
+               00137         extern  _UEP14
+               00138         extern  _UEP15
+               00139         extern  _PORTA
+               00140         extern  _PORTB
+               00141         extern  _PORTC
+               00142         extern  _PORTD
+               00143         extern  _PORTE
+               00144         extern  _LATA
+               00145         extern  _LATB
+               00146         extern  _LATC
+               00147         extern  _LATD
+               00148         extern  _LATE
+               00149         extern  _TRISA
+               00150         extern  _TRISB
+               00151         extern  _TRISC
+               00152         extern  _TRISD
+               00153         extern  _TRISE
+               00154         extern  _OSCTUNE
+               00155         extern  _PIE1
+               00156         extern  _PIR1
+               00157         extern  _IPR1
+               00158         extern  _PIE2
+               00159         extern  _PIR2
+               00160         extern  _IPR2
+               00161         extern  _EECON1
+               00162         extern  _EECON2
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00163         extern  _EEDATA
+               00164         extern  _EEADR
+               00165         extern  _RCSTA
+               00166         extern  _TXSTA
+               00167         extern  _TXREG
+               00168         extern  _RCREG
+               00169         extern  _SPBRG
+               00170         extern  _SPBRGH
+               00171         extern  _T3CON
+               00172         extern  _TMR3L
+               00173         extern  _TMR3H
+               00174         extern  _CMCON
+               00175         extern  _CVRCON
+               00176         extern  _ECCP1AS
+               00177         extern  _ECCP1DEL
+               00178         extern  _BAUDCON
+               00179         extern  _CCP2CON
+               00180         extern  _CCPR2L
+               00181         extern  _CCPR2H
+               00182         extern  _CCP1CON
+               00183         extern  _CCPR1L
+               00184         extern  _CCPR1H
+               00185         extern  _ADCON2
+               00186         extern  _ADCON1
+               00187         extern  _ADCON0
+               00188         extern  _ADRESL
+               00189         extern  _ADRESH
+               00190         extern  _SSPCON2
+               00191         extern  _SSPCON1
+               00192         extern  _SSPSTAT
+               00193         extern  _SSPADD
+               00194         extern  _SSPBUF
+               00195         extern  _T2CON
+               00196         extern  _PR2
+               00197         extern  _TMR2
+               00198         extern  _T1CON
+               00199         extern  _TMR1L
+               00200         extern  _TMR1H
+               00201         extern  _RCON
+               00202         extern  _WDTCON
+               00203         extern  _HLVDCON
+               00204         extern  _OSCCON
+               00205         extern  _T0CON
+               00206         extern  _TMR0L
+               00207         extern  _TMR0H
+               00208         extern  _STATUS
+               00209         extern  _FSR2L
+               00210         extern  _FSR2H
+               00211         extern  _PLUSW2
+               00212         extern  _PREINC2
+               00213         extern  _POSTDEC2
+               00214         extern  _POSTINC2
+               00215         extern  _INDF2
+               00216         extern  _BSR
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00217         extern  _FSR1L
+               00218         extern  _FSR1H
+               00219         extern  _PLUSW1
+               00220         extern  _PREINC1
+               00221         extern  _POSTDEC1
+               00222         extern  _POSTINC1
+               00223         extern  _INDF1
+               00224         extern  _WREG
+               00225         extern  _FSR0L
+               00226         extern  _FSR0H
+               00227         extern  _PLUSW0
+               00228         extern  _PREINC0
+               00229         extern  _POSTDEC0
+               00230         extern  _POSTINC0
+               00231         extern  _INDF0
+               00232         extern  _INTCON3
+               00233         extern  _INTCON2
+               00234         extern  _INTCON
+               00235         extern  _PRODL
+               00236         extern  _PRODH
+               00237         extern  _TABLAT
+               00238         extern  _TBLPTRL
+               00239         extern  _TBLPTRH
+               00240         extern  _TBLPTRU
+               00241         extern  _PCL
+               00242         extern  _PCLATH
+               00243         extern  _PCLATU
+               00244         extern  _STKPTR
+               00245         extern  _TOSL
+               00246         extern  _TOSH
+               00247         extern  _TOSU
+               00248         extern  _delay1mtcy
+               00249 
+               00250 ;--------------------------------------------------------
+               00251 ;       Equates to used internal registers
+               00252 ;--------------------------------------------------------
+  00000FD8     00253 STATUS  equ     0xfd8
+  00000FF3     00254 PRODL   equ     0xff3
+               00255 
+               00256 
+               00257 ; Internal registers
+               00258 .registers      udata_ovr       0x0000
+               00259 r0x00   res     1
+               00260 
+               00261 ;--------------------------------------------------------
+               00262 ; interrupt vector
+               00263 ;--------------------------------------------------------
+               00264 
+               00265 ;--------------------------------------------------------
+               00266 ; global & static initialisations
+               00267 ;--------------------------------------------------------
+               00268 ; I code from now on!
+               00269 ; ; Starting pCode block
+               00270 S_main__main    code
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+0000 00271 _main:
+               00272 ;       .line   12; main.c      unsigned char chenille=1;
+0000 0E01      00273         MOVLW   0x01
+0002 6E00      00274         MOVWF   r0x00
+               00275 ;       .line   15; main.c      TRISD=0;
+0004 6A00      00276         CLRF    _TRISD
+               00277 ;       .line   16; main.c      TRISB=0;
+0006 6A00      00278         CLRF    _TRISB
+               00279 ;       .line   17; main.c      LATB=1;
+0008 0E01      00280         MOVLW   0x01
+000A 6E00      00281         MOVWF   _LATB
+               00282 ;       .line   18; main.c      LATD=1;
+000C 0E01      00283         MOVLW   0x01
+000E 6E00      00284         MOVWF   _LATD
+               00285 ;       .line   19; main.c      delay1mtcy(5);     // wait for 0.5 sec (1 cycle = 4 clock tops; oscillator conf is on 48MHz)
+0010 0E05      00286         MOVLW   0x05
+0012 EC00 F000 00287         CALL    _delay1mtcy
+0016 00288 _00109_DS_:
+               00289 ;       .line   22; main.c      while (chenille!= 0x80){
+0016 5000      00290         MOVF    r0x00, W
+0018 0A80      00291         XORLW   0x80
+001A E000      00292         BZ      _00112_DS_
+               00293 ; ;multiply lit val:0x02 by variable r0x00 and store in r0x00
+               00294 ;       .line   23; main.c      chenille *=2;      // shift the bit
+001C 5000      00295         MOVF    r0x00, W
+001E 0D02      00296         MULLW   0x02
+0020 CFF3 F000 00297         MOVFF   PRODL, r0x00
+               00298 ;       .line   24; main.c      LATB = chenille;   // light the leds
+0024 C000 F000 00299         MOVFF   r0x00, _LATB
+               00300 ;       .line   25; main.c      LATD = chenille;   // light the leds
+0028 C000 F000 00301         MOVFF   r0x00, _LATD
+               00302 ;       .line   26; main.c      delay1mtcy(5);     // wait for 0.5 sec (1 cycle = 4 clock tops; oscillator conf is on 48MHz)
+002C 0E05      00303         MOVLW   0x05
+002E EC00 F000 00304         CALL    _delay1mtcy
+0032 D000      00305         BRA     _00109_DS_
+0034 00306 _00112_DS_:
+               00307 ;       .line   29; main.c      while (chenille!= 0x01){
+0034 5000      00308         MOVF    r0x00, W
+0036 0A01      00309         XORLW   0x01
+0038 E000      00310         BZ      _00109_DS_
+               00311 ;       .line   30; main.c      chenille /=2;      // shift the bit
+003A 90D8      00312         BCF     STATUS, 0
+003C 3200      00313         RRCF    r0x00, F
+               00314 ;       .line   31; main.c      LATB = chenille;   // light the leds
+003E C000 F000 00315         MOVFF   r0x00, _LATB
+               00316 ;       .line   32; main.c      LATD = chenille;   // light the leds
+0042 C000 F000 00317         MOVFF   r0x00, _LATD
+               00318 ;       .line   33; main.c      delay1mtcy(5);     // wait for 0.5 sec (1 cycle = 4 clock tops; oscillator conf is on 48MHz)
+0046 0E05      00319         MOVLW   0x05
+0048 EC00 F000 00320         CALL    _delay1mtcy
+004C D000      00321         BRA     _00112_DS_
+004E 0012      00322         RETURN  
+               00323 
+               00324 ; ; Starting pCode block
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+               00325         CONFIG  PLLDIV=5,CPUDIV=OSC1_PLL2,USBDIV=2,FOSC=HSPLL_HS,VREGEN=ON,WDT=OFF,PBADEN=OFF,XINST=OFF,LVP=OFF,CP0=OFF,IESO=ON,PWRT=ON,BOR=ON
+               00326         code
+               00327 
+               00328 
+               00329 ; Statistics:
+               00330 ; code size:       84 (0x0054) bytes ( 0.06%)
+               00331 ;                  42 (0x002a) words
+               00332 ; udata size:       0 (0x0000) bytes ( 0.00%)
+               00333 ; access size:      1 (0x0001) bytes
+               00334 
+               00335 
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PRODL                             00000FF3
+STATUS                            00000FD8
+_00109_DS_                        00000016
+_00112_DS_                        00000034
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADCON2                           00000000
+_ADCON2bits                       00000000
+_ADRESH                           00000000
+_ADRESL                           00000000
+_BAUDCON                          00000000
+_BAUDCONbits                      00000000
+_BSR                              00000000
+_BSRbits                          00000000
+_CCP1CON                          00000000
+_CCP1CONbits                      00000000
+_CCP2CON                          00000000
+_CCP2CONbits                      00000000
+_CCPR1H                           00000000
+_CCPR1L                           00000000
+_CCPR2H                           00000000
+_CCPR2L                           00000000
+_CMCON                            00000000
+_CMCONbits                        00000000
+_CVRCON                           00000000
+_CVRCONbits                       00000000
+_ECCP1AS                          00000000
+_ECCP1ASbits                      00000000
+_ECCP1DEL                         00000000
+_ECCP1DELbits                     00000000
+_EEADR                            00000000
+_EECON1                           00000000
+_EECON1bits                       00000000
+_EECON2                           00000000
+_EEDATA                           00000000
+_FSR0H                            00000000
+_FSR0Hbits                        00000000
+_FSR0L                            00000000
+_FSR1H                            00000000
+_FSR1Hbits                        00000000
+_FSR1L                            00000000
+_FSR2H                            00000000
+_FSR2Hbits                        00000000
+_FSR2L                            00000000
+_HLVDCON                          00000000
+_HLVDCONbits                      00000000
+_INDF0                            00000000
+_INDF1                            00000000
+_INDF2                            00000000
+_INTCON                           00000000
+_INTCON2                          00000000
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+_INTCON2bits                      00000000
+_INTCON3                          00000000
+_INTCON3bits                      00000000
+_INTCONbits                       00000000
+_IPR1                             00000000
+_IPR1bits                         00000000
+_IPR2                             00000000
+_IPR2bits                         00000000
+_LATA                             00000000
+_LATAbits                         00000000
+_LATB                             00000000
+_LATBbits                         00000000
+_LATC                             00000000
+_LATCbits                         00000000
+_LATD                             00000000
+_LATDbits                         00000000
+_LATE                             00000000
+_LATEbits                         00000000
+_OSCCON                           00000000
+_OSCCONbits                       00000000
+_OSCTUNE                          00000000
+_OSCTUNEbits                      00000000
+_PCL                              00000000
+_PCLATH                           00000000
+_PCLATHbits                       00000000
+_PCLATU                           00000000
+_PCLATUbits                       00000000
+_PIE1                             00000000
+_PIE1bits                         00000000
+_PIE2                             00000000
+_PIE2bits                         00000000
+_PIR1                             00000000
+_PIR1bits                         00000000
+_PIR2                             00000000
+_PIR2bits                         00000000
+_PLUSW0                           00000000
+_PLUSW1                           00000000
+_PLUSW2                           00000000
+_PORTA                            00000000
+_PORTAbits                        00000000
+_PORTB                            00000000
+_PORTBbits                        00000000
+_PORTC                            00000000
+_PORTCbits                        00000000
+_PORTD                            00000000
+_PORTDbits                        00000000
+_PORTE                            00000000
+_PORTEbits                        00000000
+_POSTDEC0                         00000000
+_POSTDEC1                         00000000
+_POSTDEC2                         00000000
+_POSTINC0                         00000000
+_POSTINC1                         00000000
+_POSTINC2                         00000000
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+_PR2                              00000000
+_PREINC0                          00000000
+_PREINC1                          00000000
+_PREINC2                          00000000
+_PRODH                            00000000
+_PRODL                            00000000
+_RCON                             00000000
+_RCONbits                         00000000
+_RCREG                            00000000
+_RCSTA                            00000000
+_RCSTAbits                        00000000
+_SPBRG                            00000000
+_SPBRGH                           00000000
+_SPPCFG                           00000000
+_SPPCFGbits                       00000000
+_SPPCON                           00000000
+_SPPCONbits                       00000000
+_SPPDATA                          00000000
+_SPPDATAbits                      00000000
+_SPPEPS                           00000000
+_SPPEPSbits                       00000000
+_SSPADD                           00000000
+_SSPBUF                           00000000
+_SSPCON1                          00000000
+_SSPCON1bits                      00000000
+_SSPCON2                          00000000
+_SSPCON2bits                      00000000
+_SSPSTAT                          00000000
+_SSPSTATbits                      00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_STKPTR                           00000000
+_STKPTRbits                       00000000
+_T0CON                            00000000
+_T0CONbits                        00000000
+_T1CON                            00000000
+_T1CONbits                        00000000
+_T2CON                            00000000
+_T2CONbits                        00000000
+_T3CON                            00000000
+_T3CONbits                        00000000
+_TABLAT                           00000000
+_TBLPTRH                          00000000
+_TBLPTRL                          00000000
+_TBLPTRU                          00000000
+_TBLPTRUbits                      00000000
+_TMR0H                            00000000
+_TMR0L                            00000000
+_TMR1H                            00000000
+_TMR1L                            00000000
+_TMR2                             00000000
+_TMR3H                            00000000
+_TMR3L                            00000000
+_TOSH                             00000000
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+_TOSL                             00000000
+_TOSU                             00000000
+_TOSUbits                         00000000
+_TRISA                            00000000
+_TRISAbits                        00000000
+_TRISB                            00000000
+_TRISBbits                        00000000
+_TRISC                            00000000
+_TRISCbits                        00000000
+_TRISD                            00000000
+_TRISDbits                        00000000
+_TRISE                            00000000
+_TRISEbits                        00000000
+_TXREG                            00000000
+_TXSTA                            00000000
+_TXSTAbits                        00000000
+_UADDR                            00000000
+_UADDRbits                        00000000
+_UCFG                             00000000
+_UCFGbits                         00000000
+_UCON                             00000000
+_UCONbits                         00000000
+_UEIE                             00000000
+_UEIEbits                         00000000
+_UEIR                             00000000
+_UEIRbits                         00000000
+_UEP0                             00000000
+_UEP0bits                         00000000
+_UEP1                             00000000
+_UEP10                            00000000
+_UEP10bits                        00000000
+_UEP11                            00000000
+_UEP11bits                        00000000
+_UEP12                            00000000
+_UEP12bits                        00000000
+_UEP13                            00000000
+_UEP13bits                        00000000
+_UEP14                            00000000
+_UEP14bits                        00000000
+_UEP15                            00000000
+_UEP15bits                        00000000
+_UEP1bits                         00000000
+_UEP2                             00000000
+_UEP2bits                         00000000
+_UEP3                             00000000
+_UEP3bits                         00000000
+_UEP4                             00000000
+_UEP4bits                         00000000
+_UEP5                             00000000
+_UEP5bits                         00000000
+_UEP6                             00000000
+_UEP6bits                         00000000
+_UEP7                             00000000
+_UEP7bits                         00000000
+gpasm-0.13.7 beta               obj/Release/main.asm2-12-2013  19:52:06          PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+ 
+_UEP8                             00000000
+_UEP8bits                         00000000
+_UEP9                             00000000
+_UEP9bits                         00000000
+_UFRMH                            00000000
+_UFRMHbits                        00000000
+_UFRML                            00000000
+_UFRMLbits                        00000000
+_UIE                              00000000
+_UIEbits                          00000000
+_UIR                              00000000
+_UIRbits                          00000000
+_USTAT                            00000000
+_USTATbits                        00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+_WREG                             00000000
+__18F4550                         00000001
+_delay1mtcy                       00000000
+_main                             00000000
+r0x00                             00000000
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

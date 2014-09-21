@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1360866217 source:/home/cyrille/sdcc/tp_tutos/acquisition_numerique/main.c
+	<pic18f4550.h>
+	"config.h"
+
+1360865888 /home/cyrille/sdcc/tp_tutos/acquisition_numerique/config.h
+	<pic18fregs.h>
+
